@@ -62,12 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.8.0.1687</Version>
+      <Version>4.8.0.1821</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common.UI\Common.UI.csproj">
-      <Project>{61b37238-d36c-4bac-a7bc-a5b4dfad7a55}</Project>
+      <Project>{58109F9C-FEB7-40BF-9AF7-3D5AFAAF2A80}</Project>
       <Name>Common.UI</Name>
     </ProjectReference>
   </ItemGroup>
