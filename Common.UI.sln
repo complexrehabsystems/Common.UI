@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.UI", "Common.UI\Comm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UI.UWP", "Common.UI.UWP\Common.UI.UWP.csproj", "{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UI.iOS", "Common.UI.iOS\Common.UI.iOS.csproj", "{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug .NET Native|Any CPU = Debug .NET Native|Any CPU
@@ -17,6 +19,10 @@ Global
 		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Debug-Mock|Any CPU = Debug-Mock|Any CPU
+		Debug-Mock|ARM = Debug-Mock|ARM
+		Debug-Mock|x64 = Debug-Mock|x64
+		Debug-Mock|x86 = Debug-Mock|x86
 		Release|Any CPU = Release|Any CPU
 		Release|ARM = Release|ARM
 		Release|x64 = Release|x64
@@ -39,6 +45,14 @@ Global
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|x64.Build.0 = Debug|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|x86.Build.0 = Debug|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug-Mock|Any CPU.ActiveCfg = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug-Mock|Any CPU.Build.0 = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug-Mock|ARM.ActiveCfg = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug-Mock|ARM.Build.0 = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug-Mock|x64.ActiveCfg = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug-Mock|x64.Build.0 = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug-Mock|x86.ActiveCfg = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug-Mock|x86.Build.0 = Debug .NET Native|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|ARM.ActiveCfg = Release|Any CPU
@@ -63,6 +77,14 @@ Global
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|x64.Build.0 = Debug|x64
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|x86.ActiveCfg = Debug|x86
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|x86.Build.0 = Debug|x86
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug-Mock|Any CPU.ActiveCfg = Debug|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug-Mock|Any CPU.Build.0 = Debug|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug-Mock|ARM.ActiveCfg = Debug|ARM
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug-Mock|ARM.Build.0 = Debug|ARM
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug-Mock|x64.ActiveCfg = Debug|x64
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug-Mock|x64.Build.0 = Debug|x64
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug-Mock|x86.ActiveCfg = Debug|x86
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug-Mock|x86.Build.0 = Debug|x86
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|ARM.ActiveCfg = Release|ARM
@@ -71,6 +93,38 @@ Global
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|x64.Build.0 = Release|x64
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|x86.ActiveCfg = Release|x86
 		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|x86.Build.0 = Release|x86
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug .NET Native|Any CPU.ActiveCfg = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug .NET Native|Any CPU.Build.0 = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug .NET Native|ARM.ActiveCfg = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug .NET Native|ARM.Build.0 = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug .NET Native|x64.ActiveCfg = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug .NET Native|x64.Build.0 = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug .NET Native|x86.ActiveCfg = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug .NET Native|x86.Build.0 = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|ARM.Build.0 = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|x64.Build.0 = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|x86.Build.0 = Debug|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug-Mock|Any CPU.ActiveCfg = Debug-Mock|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug-Mock|Any CPU.Build.0 = Debug-Mock|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug-Mock|ARM.ActiveCfg = Debug-Mock|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug-Mock|ARM.Build.0 = Debug-Mock|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug-Mock|x64.ActiveCfg = Debug-Mock|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug-Mock|x64.Build.0 = Debug-Mock|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug-Mock|x86.ActiveCfg = Debug-Mock|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug-Mock|x86.Build.0 = Debug-Mock|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|ARM.Build.0 = Release|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|x64.ActiveCfg = Release|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|x64.Build.0 = Release|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|x86.ActiveCfg = Release|Any CPU
+		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

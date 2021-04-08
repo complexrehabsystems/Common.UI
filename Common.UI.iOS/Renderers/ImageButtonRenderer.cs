@@ -1,25 +1,22 @@
-﻿using Common.Controls;
-using Common.UI.iOS.Controls;
-using Foundation;
+﻿using Common.UI.iOS.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(Common.Controls.ImageButton), typeof(Common.UI.iOS.Renderers.ImageButtonRenderer))]
+using CommonImageButton = Common.UI.Controls.ImageButton;
+
+[assembly: ExportRenderer(typeof(Common.UI.Controls.ImageButton), typeof(Common.UI.iOS.Renderers.ImageButtonRenderer))]
 namespace Common.UI.iOS.Renderers
 {
-    public class ImageButtonRenderer : ViewRenderer<Common.Controls.ImageButton, UIView>
+    public class ImageButtonRenderer : ViewRenderer<CommonImageButton, UIView>
     {
         protected bool MouseDown;
         protected bool MouseEntered;
         protected bool _pointerCaptured = false;
         public static int LoadClass = 0;
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Common.Controls.ImageButton> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<CommonImageButton> e)
         {
             base.OnElementChanged(e);
 
@@ -74,7 +71,7 @@ namespace Common.UI.iOS.Renderers
         void ButtonPressed(bool pressed)
         {
             if (Element != null)
-                Element.ButtonState = pressed ? Common.Controls.ImageButton.State.Active : Common.Controls.ImageButton.State.Hover;
+                Element.ButtonState = pressed ? CommonImageButton.State.Active : CommonImageButton.State.Hover;
 
             if (pressed == MouseDown)
                 return;
@@ -90,7 +87,7 @@ namespace Common.UI.iOS.Renderers
         private void ReleaseButtonPressed(bool canceling)
         {
             if (Element != null)
-                Element.ButtonState = Common.Controls.ImageButton.State.Static;
+                Element.ButtonState = CommonImageButton.State.Static;
 
             if (!MouseDown || !Element.IsEnabled)
                 return;
@@ -103,7 +100,7 @@ namespace Common.UI.iOS.Renderers
             Element.IsHighlighted = false;
 
             if (Element != null)
-                Element.ButtonState = Common.Controls.ImageButton.State.Static;
+                Element.ButtonState = CommonImageButton.State.Static;
 
             if (!canceling)
             {
