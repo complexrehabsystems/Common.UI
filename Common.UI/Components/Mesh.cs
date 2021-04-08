@@ -1,15 +1,13 @@
-﻿using Common.Common;
-using SkiaSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Common.UI.Common;
 using Urho;
-using Urho.Urho2D;
 
-namespace Common.Components
+namespace Common.UI.Components
 {
     public class Mesh
     {

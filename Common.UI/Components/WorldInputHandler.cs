@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
+using Common.UI.Controls;
 using Urho;
-using Common.Controls;
 
-namespace Common.Components
+namespace Common.UI.Components
 {
     public class WorldInputHandler: Component
     {

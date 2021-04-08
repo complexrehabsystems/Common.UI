@@ -1,17 +1,12 @@
-﻿using Common.Controls;
-using Common.UWP.Common;
-using Common.UWP.Renderers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI;
+﻿using Windows.UI;
 using Windows.UI.ViewManagement;
+using Common.UI.Controls;
+using Common.UI.UWP.Common;
+using Common.UI.UWP.Renderers;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ExportRenderer(typeof(CustomPage), typeof(CustomPageRenderer))]
-namespace Common.UWP.Renderers
+namespace Common.UI.UWP.Renderers
 {
     public class CustomPageRenderer:PageRenderer
     {

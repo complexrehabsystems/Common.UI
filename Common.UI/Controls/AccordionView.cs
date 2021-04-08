@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     public class AccordionView : Grid
     {

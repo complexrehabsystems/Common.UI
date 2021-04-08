@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows.Input;
-using Common.Common;
+using Common.UI.Common;
 using Xamarin.Forms;
 
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     public class ImageButton : ContentView
     {

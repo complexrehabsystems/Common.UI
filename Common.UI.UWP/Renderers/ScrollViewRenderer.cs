@@ -1,19 +1,19 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Platform.UWP;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.UWP;
 using ScrollBarVisibility = Xamarin.Forms.ScrollBarVisibility;
 using UwpScrollBarVisibility = Windows.UI.Xaml.Controls.ScrollBarVisibility;
 using Size = Xamarin.Forms.Size;
 using Point = Xamarin.Forms.Point;
+using ScrollViewRenderer = Common.UI.UWP.Renderers.ScrollViewRenderer;
 using Thickness = Xamarin.Forms.Thickness;
 
-[assembly: ExportRenderer(typeof(ScrollView), typeof(Common.UWP.Renderers.ScrollViewRenderer))]
-namespace Common.UWP.Renderers
+[assembly: ExportRenderer(typeof(ScrollView), typeof(ScrollViewRenderer))]
+namespace Common.UI.UWP.Renderers
 {
     
     public class ScrollViewRenderer : ViewRenderer<ScrollView, ScrollViewer>//, IDontGetFocus

@@ -1,8 +1,6 @@
-﻿
-using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace Common.Controls.VideoPlayerLibrary
+namespace Common.UI.Controls.VideoPlayerLibrary
 {
     public interface IVideoPicker
     {

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using Urho;
-using Urho.Shapes;
-using Common.Controls;
+﻿using Urho;
 
-namespace Common.Components
+namespace Common.UI.Components
 {
     public class Box : Urho.Shapes.Box
     {

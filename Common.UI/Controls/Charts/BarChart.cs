@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using Common.UI.Drawing.Touch;
 using PropertyChanged;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
-using TouchTracking;
 using Xamarin.Forms;
 
-namespace Common.Controls.Charts
+namespace Common.UI.Controls.Charts
 {
     [AddINotifyPropertyChangedInterface]
     public class BarChart : SKCanvasView

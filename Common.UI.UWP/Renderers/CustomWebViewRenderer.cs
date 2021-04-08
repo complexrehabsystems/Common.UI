@@ -1,10 +1,10 @@
-﻿using Common.Controls;
-using Common.UWP.Renderers;
+﻿using Common.UI.Controls;
+using Common.UI.UWP.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ExportRenderer(typeof(CustomWebView), typeof(CustomWebViewRenderer))]
-namespace Common.UWP.Renderers
+namespace Common.UI.UWP.Renderers
 {
     public class CustomWebViewRenderer : WebViewRenderer, IWebViewDelegate
     {

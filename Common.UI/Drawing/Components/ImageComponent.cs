@@ -1,13 +1,10 @@
-﻿using SkiaSharp;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using TouchTracking;
+using SkiaSharp;
 
-namespace Common.Drawing.Components
+namespace Common.UI.Drawing.Components
 {
     public class ImageComponent : BaseComponent
     {

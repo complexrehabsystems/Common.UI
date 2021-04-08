@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Common.Controls.Auto.Forms.Validation
+namespace Common.UI.Controls.Auto.Forms.Validation
 {
     public class AutoFormsEmailAttribute : AutoFormsValidationAttribute
     {

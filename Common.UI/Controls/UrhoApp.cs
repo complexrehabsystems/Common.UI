@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Text;
+using Common.UI.Components;
 using Urho;
-using Urho.Actions;
-using Urho.Shapes;
-using Common.Components;
 
-
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     public class UrhoApp : Application
     {

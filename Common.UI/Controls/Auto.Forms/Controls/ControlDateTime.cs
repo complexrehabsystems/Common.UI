@@ -1,11 +1,9 @@
-﻿using Common.Controls.Auto.Forms.Converters;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Text;
+using Common.UI.Controls.Auto.Forms.Converters;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms.Controls
+namespace Common.UI.Controls.Auto.Forms.Controls
 {
     public class ControlDateTime : ControlBase
     {

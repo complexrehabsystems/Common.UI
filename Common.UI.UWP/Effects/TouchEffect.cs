@@ -3,18 +3,20 @@ using System.Linq;
 using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
+using Common.UI.Drawing.Touch;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
+using TouchEffect = Common.UI.UWP.Effects.TouchEffect;
 
 [assembly: ResolutionGroupName("XamarinDocs")]
-[assembly: ExportEffect(typeof(TouchTracking.UWP.TouchEffect), "TouchEffect")]
+[assembly: ExportEffect(typeof(TouchEffect), "TouchEffect")]
 
-namespace TouchTracking.UWP
+namespace Common.UI.UWP.Effects
 {
     public class TouchEffect : PlatformEffect
     {
         FrameworkElement frameworkElement;
-        TouchTracking.TouchEffect effect;
+        UI.Drawing.Touch.TouchEffect effect;
         Action<Element, TouchActionEventArgs> onTouchAction;
 
         protected override void OnAttached()
@@ -23,8 +25,8 @@ namespace TouchTracking.UWP
             frameworkElement = Control == null ? Container : Control;
 
             // Get access to the TouchEffect class in the PCL
-            effect = (TouchTracking.TouchEffect)Element.Effects.
-                        FirstOrDefault(e => e is TouchTracking.TouchEffect);
+            effect = (UI.Drawing.Touch.TouchEffect)Element.Effects.
+                        FirstOrDefault(e => e is UI.Drawing.Touch.TouchEffect);
 
             if (effect != null && frameworkElement != null)
             {

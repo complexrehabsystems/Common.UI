@@ -1,16 +1,10 @@
-﻿using Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
-using System.Reactive.Linq;
+using Common.UI.Interfaces;
 
-namespace Common.UWP.Services
+namespace Common.UI.UWP.Services
 {
     public class InactivityTimer_UWP : IInactivityTimer
     {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Common.Interfaces
+namespace Common.UI.Interfaces
 {
     public interface IInactivityTimer
     {

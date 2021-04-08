@@ -1,7 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
-namespace Common.Controls.VideoPlayerLibrary
+namespace Common.UI.Controls.VideoPlayerLibrary
 {
     public class UriVideoSource : VideoSource
     {

@@ -1,15 +1,10 @@
-﻿using PropertyChanged;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using PropertyChanged;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ColorPicker : ContentView
@@ -46,7 +41,7 @@ namespace Common.Controls
             Color = (tappedArgs?.Parameter as ColorViewModel)?.Color ?? Color.Black;
         }
 
-        [AddINotifyPropertyChangedInterfaceAttribute]
+        [AddINotifyPropertyChangedInterface]
         public class ColorPickerViewModel
         {
             private ObservableCollection<ColorViewModel> _availableColors = new ObservableCollection<ColorViewModel>
@@ -87,7 +82,7 @@ namespace Common.Controls
         }
 
 
-        [AddINotifyPropertyChangedInterfaceAttribute]
+        [AddINotifyPropertyChangedInterface]
         public class ColorViewModel
         {
             public Color Color { get; set; }

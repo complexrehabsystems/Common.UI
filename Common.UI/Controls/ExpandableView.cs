@@ -1,13 +1,11 @@
-﻿using Common.Common;
-using Common.Constants;
-using PropertyChanged;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Input;
+using Common.UI.Common;
+using Common.UI.Constants;
+using PropertyChanged;
 using Xamarin.Forms;
 
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     public class ExpandableView : StackLayout
     {
@@ -449,7 +447,7 @@ namespace Common.Controls
         }
     }
 
-    [AddINotifyPropertyChangedInterfaceAttribute]
+    [AddINotifyPropertyChangedInterface]
     public class ExpandableViewHeaderViewModel
     {
         public EventHandler<bool> IsMouseOverChanged;

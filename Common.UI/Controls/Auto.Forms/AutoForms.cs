@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using System.Reflection;
+using Common.UI.Controls.Auto.Forms.Attributes;
+using Common.UI.Controls.Auto.Forms.Common;
+using Common.UI.Controls.Auto.Forms.Controls;
+using Common.UI.Controls.Auto.Forms.Enums;
+using Common.UI.Controls.Auto.Forms.Validation;
 using Xamarin.Forms;
-using System.Diagnostics;
-using System.Collections.ObjectModel;
-using Common.Common;
-using System.Windows.Input;
-using Common.Controls.Auto.Forms.Attributes;
-using Common.Controls.Auto.Forms.Controls;
-using Common.Controls.Auto.Forms.Validation;
 
 /* Example usage for the AutoForms Control
  
@@ -67,7 +62,7 @@ using Common.Controls.Auto.Forms.Validation;
     }
      * */
 
-namespace Common.Controls.Auto.Forms
+namespace Common.UI.Controls.Auto.Forms
 {
 
     public class AutoForms : ContentView

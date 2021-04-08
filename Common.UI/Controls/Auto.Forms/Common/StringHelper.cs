@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 
-namespace Common.Controls.Auto.Forms.Common
+namespace Common.UI.Controls.Auto.Forms.Common
 {
     public static class StringHelper
     {

@@ -1,4 +1,4 @@
-﻿namespace Common.Controls.Charts
+﻿namespace Common.UI.Controls.Charts
 {
     public class Range
     {

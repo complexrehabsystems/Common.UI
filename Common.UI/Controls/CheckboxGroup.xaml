@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:common="clr-namespace:Common.Controls;assembly=Common.UI"
+             xmlns:controls="clr-namespace:Common.UI.Controls;assembly=Common.UI"
              mc:Ignorable="d"
-             x:Class="Common.Controls.CheckboxGroup">
+             x:Class="Common.UI.Controls.CheckboxGroup">
     <ContentView.ControlTemplate>
         <ControlTemplate>
             <Grid>
@@ -30,12 +30,12 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <common:ImageButton Text="Select All"
+                    <controls:ImageButton Text="Select All"
                                         Margin="10,0,0,0"
                                         WidthRequest="100"
                                         Style="{TemplateBinding ButtonStyle}"
                                         Command="{TemplateBinding SelectAllCommand}"/>
-                    <common:ImageButton Grid.Column="1"
+                    <controls:ImageButton Grid.Column="1"
                                         Text="Unselect All"
                                         WidthRequest="100"
                                         Style="{TemplateBinding ButtonStyle}"

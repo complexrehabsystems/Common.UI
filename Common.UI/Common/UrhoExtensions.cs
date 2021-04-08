@@ -1,7 +1,7 @@
 ﻿using Urho;
-using static Common.Components.Mesh;
+using static Common.UI.Components.Mesh;
 
-namespace Common.Common
+namespace Common.UI.Common
 {
     public static class UrhoExtensions
     {

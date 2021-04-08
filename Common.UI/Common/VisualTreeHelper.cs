@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using Xamarin.Forms;
 
-namespace Common.Common
+namespace Common.UI.Common
 {
     public static class VisualTreeHelper
     {

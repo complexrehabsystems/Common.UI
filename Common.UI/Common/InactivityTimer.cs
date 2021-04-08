@@ -1,11 +1,9 @@
-﻿using Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading;
+using Common.UI.Interfaces;
 using Xamarin.Forms;
 
-namespace Common.Common
+namespace Common.UI.Common
 {
     public class InactivityTimer : IInactivityTimer
     {

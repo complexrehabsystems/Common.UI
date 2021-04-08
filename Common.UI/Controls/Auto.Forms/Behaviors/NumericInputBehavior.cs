@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms.Behaviors
+namespace Common.UI.Controls.Auto.Forms.Behaviors
 {
     public class NumericInputBehavior<T> : Behavior<T> where T : View
     {

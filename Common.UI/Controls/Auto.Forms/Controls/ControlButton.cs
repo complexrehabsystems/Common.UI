@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms.Controls
+namespace Common.UI.Controls.Auto.Forms.Controls
 {
     public class ControlButton : ControlBase
     {

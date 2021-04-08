@@ -1,10 +1,8 @@
-using Common.Controls.Auto.Forms.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using Common.UI.Controls.Auto.Forms.Common;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms
+namespace Common.UI.Controls.Auto.Forms.Converters
 {
     public class DisplayConverter : IValueConverter
     {

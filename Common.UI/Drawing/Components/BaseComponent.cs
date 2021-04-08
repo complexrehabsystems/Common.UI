@@ -1,13 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Common.UI.Drawing.Touch;
+using Newtonsoft.Json;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TouchTracking;
 using Xamarin.Forms;
 
-namespace Common.Drawing.Components
+namespace Common.UI.Drawing.Components
 {
     public abstract class BaseComponent
     {

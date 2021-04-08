@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Common.Controls.VideoPlayerLibrary
+﻿namespace Common.UI.Controls.VideoPlayerLibrary
 {
     public class VideoInfo
     {

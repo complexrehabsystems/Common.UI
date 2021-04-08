@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Collections.Specialized;
-using System.Text;
 using Xamarin.Forms;
 
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     public class SelectButtonGroupDynamic : ContentView
     {

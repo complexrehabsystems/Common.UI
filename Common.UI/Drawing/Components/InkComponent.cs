@@ -1,11 +1,10 @@
-﻿using SkiaSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using TouchTracking;
+using Common.UI.Drawing.Touch;
+using SkiaSharp;
 
-namespace Common.Drawing.Components
+namespace Common.UI.Drawing.Components
 {
     public class InkComponent : BaseComponent
     {

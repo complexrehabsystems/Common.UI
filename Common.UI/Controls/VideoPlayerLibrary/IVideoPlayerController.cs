@@ -1,9 +1,6 @@
-﻿using Common.Controls.VideoPlayerLibrary;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
-namespace Common.Controls
+namespace Common.UI.Controls.VideoPlayerLibrary
 {
     public interface IVideoPlayerController
     {

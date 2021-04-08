@@ -1,19 +1,16 @@
-﻿using Common.Controls.ReorderCollectionView;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.ExceptionServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using TouchTracking;
+using Common.UI.Common;
 using Xamarin.Forms;
-using static Common.Controls.InputHandler;
-using Common.Common;
+using static Common.UI.Controls.InputHandler;
 
-namespace Common.Controls.ReorderCollectionView
+namespace Common.UI.Controls.ReorderCollectionView
 {
     public class ReorderCollectionView : ContentView
     {

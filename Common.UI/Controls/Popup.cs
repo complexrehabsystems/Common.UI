@@ -1,16 +1,12 @@
-﻿using Common.Common;
-using Common.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Common.UI.Common;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
 
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     public class Popup<T> : ContentView
     {

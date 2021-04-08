@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     public class UnclickableListView : ListView
     {

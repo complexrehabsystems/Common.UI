@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Reflection;
-using System.Text;
+using Common.UI.Controls.Auto.Forms.Converters;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms
+namespace Common.UI.Controls.Auto.Forms.Controls
 {
     public class ControlCheckbox : ControlBase
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Common.UI.Controls.Auto.Forms.Enums;
 
-namespace Common.Controls.Auto.Forms.Attributes
+namespace Common.UI.Controls.Auto.Forms.Attributes
 {
     public class AutoFormsRadioButtonAttribute:AutoFormsAttribute 
     {

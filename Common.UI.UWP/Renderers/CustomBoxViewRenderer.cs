@@ -1,23 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Controls;
-using Common.UWP.Common;
-using Common.UWP.Renderers;
-using Windows.Foundation;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+﻿using System.Diagnostics;
+using Common.UI.Controls;
+using Common.UI.UWP.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ExportRenderer(typeof(CustomBoxView), typeof(CustomBoxViewRenderer))]
-namespace Common.UWP.Renderers
+namespace Common.UI.UWP.Renderers
 {
     public class CustomBoxViewRenderer : BoxViewRenderer
     {

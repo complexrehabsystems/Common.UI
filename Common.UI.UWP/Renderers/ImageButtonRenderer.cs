@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Controls;
-using Common.UWP.Common;
-using Common.UWP.Renderers;
-using Windows.Foundation;
-using Windows.UI;
+﻿using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Common.UI.Controls;
+using Common.UI.UWP.Common;
 using Xamarin.Forms.Platform.UWP;
+using ImageButtonRenderer = Common.UI.UWP.Renderers.ImageButtonRenderer;
 
-[assembly: ExportRenderer(typeof(ImageButton), typeof(Common.UWP.Renderers.ImageButtonRenderer))]
-namespace Common.UWP.Renderers
+[assembly: ExportRenderer(typeof(ImageButton), typeof(ImageButtonRenderer))]
+namespace Common.UI.UWP.Renderers
 {
     public class ImageButtonRenderer : ViewRenderer<ImageButton, FrameworkElement>
     {

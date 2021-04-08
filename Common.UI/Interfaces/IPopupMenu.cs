@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Interfaces
+namespace Common.UI.Interfaces
 {
     public interface IPopupMenu
     {

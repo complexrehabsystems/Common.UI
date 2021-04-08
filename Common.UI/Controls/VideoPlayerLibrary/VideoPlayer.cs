@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
-namespace Common.Controls.VideoPlayerLibrary
+namespace Common.UI.Controls.VideoPlayerLibrary
 {
     public class VideoPlayer : View, IVideoPlayerController
     {

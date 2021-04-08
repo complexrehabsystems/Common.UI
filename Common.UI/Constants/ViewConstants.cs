@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Common.Constants
+namespace Common.UI.Constants
 {
     public static class ViewConstants
     {

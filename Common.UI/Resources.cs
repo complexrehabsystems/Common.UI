@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Common
+namespace Common.UI
 {
     public class Resources
     {

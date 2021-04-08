@@ -3,32 +3,79 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UI", "Common.UI\Common.UI.csproj", "{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.UI", "Common.UI\Common.UI.csproj", "{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UI.UWP", "Common.UI.UWP\Common.UI.UWP.csproj", "{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug .NET Native|Any CPU = Debug .NET Native|Any CPU
+		Debug .NET Native|ARM = Debug .NET Native|ARM
+		Debug .NET Native|x64 = Debug .NET Native|x64
+		Debug .NET Native|x86 = Debug .NET Native|x86
 		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug .NET Native|Any CPU.ActiveCfg = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug .NET Native|Any CPU.Build.0 = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug .NET Native|ARM.ActiveCfg = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug .NET Native|ARM.Build.0 = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug .NET Native|x64.ActiveCfg = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug .NET Native|x64.Build.0 = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug .NET Native|x86.ActiveCfg = Debug .NET Native|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug .NET Native|x86.Build.0 = Debug .NET Native|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|ARM.Build.0 = Debug|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|x64.Build.0 = Debug|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Debug|x86.Build.0 = Debug|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|ARM.ActiveCfg = Release|Any CPU
+		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|ARM.Build.0 = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|x64.ActiveCfg = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|x64.Build.0 = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|x86.ActiveCfg = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|x86.Build.0 = Release|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug .NET Native|Any CPU.ActiveCfg = Debug .NET Native|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug .NET Native|Any CPU.Build.0 = Debug .NET Native|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug .NET Native|ARM.ActiveCfg = Debug .NET Native|ARM
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug .NET Native|ARM.Build.0 = Debug .NET Native|ARM
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug .NET Native|x64.ActiveCfg = Debug .NET Native|x64
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug .NET Native|x64.Build.0 = Debug .NET Native|x64
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug .NET Native|x86.ActiveCfg = Debug .NET Native|x86
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug .NET Native|x86.Build.0 = Debug .NET Native|x86
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|ARM.ActiveCfg = Debug|ARM
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|ARM.Build.0 = Debug|ARM
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|x64.ActiveCfg = Debug|x64
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|x64.Build.0 = Debug|x64
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|x86.ActiveCfg = Debug|x86
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Debug|x86.Build.0 = Debug|x86
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|ARM.ActiveCfg = Release|ARM
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|ARM.Build.0 = Release|ARM
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|x64.ActiveCfg = Release|x64
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|x64.Build.0 = Release|x64
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|x86.ActiveCfg = Release|x86
+		{18DB68EE-ECFC-4A85-9312-A0BC12CEF05C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F91A07F7-EF99-4529-9A13-BD293D657D4A}
 	EndGlobalSection
 EndGlobal

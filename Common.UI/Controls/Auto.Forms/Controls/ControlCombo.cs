@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text;
+using Common.UI.Controls.Auto.Forms.Common;
+using Common.UI.Controls.Auto.Forms.Converters;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms
+namespace Common.UI.Controls.Auto.Forms.Controls
 {
     public class ControlCombo : ControlBase
     {

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using Common.Controls.Auto.Forms.Behaviors;
-using Common.Controls.Auto.Forms.Validation;
+using Common.UI.Controls.Auto.Forms.Behaviors;
+using Common.UI.Controls.Auto.Forms.Common;
+using Common.UI.Controls.Auto.Forms.Converters;
+using Common.UI.Controls.Auto.Forms.Validation;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms
+namespace Common.UI.Controls.Auto.Forms.Controls
 {
     public class ControlEditor : ControlBase
     {

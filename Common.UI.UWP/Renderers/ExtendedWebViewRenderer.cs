@@ -1,15 +1,12 @@
-﻿using Common.Controls;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Common.UI.Controls;
+using Common.UI.UWP.Renderers;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(ExtendedWebView), typeof(Common.UWP.Renderers.ExtendedWebViewRenderer))]
-namespace Common.UWP.Renderers
+[assembly: ExportRenderer(typeof(ExtendedWebView), typeof(ExtendedWebViewRenderer))]
+namespace Common.UI.UWP.Renderers
 {
     public class ExtendedWebViewRenderer : ViewRenderer<ExtendedWebView, Windows.UI.Xaml.Controls.WebView>
     {

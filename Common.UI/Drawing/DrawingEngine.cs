@@ -1,19 +1,17 @@
-﻿using Common.Drawing.Components;
-using Newtonsoft.Json;
-using PropertyChanged;
-using SkiaSharp;
-using SkiaSharp.Views.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using TouchTracking;
+using Common.UI.Drawing.Components;
+using Common.UI.Drawing.Touch;
+using Newtonsoft.Json;
+using SkiaSharp;
+using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
 
-namespace Common.Drawing
+namespace Common.UI.Drawing
 {
     public class DrawingEngine : INotifyPropertyChanged
     {

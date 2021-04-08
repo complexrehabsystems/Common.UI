@@ -1,11 +1,8 @@
-﻿using Common.Constants;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System;
+using Common.UI.Constants;
 using Xamarin.Forms;
 
-namespace Common.Controls
+namespace Common.UI.Controls
 {
     public class SortButton : ImageButton
     {

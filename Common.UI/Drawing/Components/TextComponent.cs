@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SkiaSharp;
-using TouchTracking;
 
-namespace Common.Drawing.Components
+namespace Common.UI.Drawing.Components
 {
     public class TextComponent:BaseComponent
     {

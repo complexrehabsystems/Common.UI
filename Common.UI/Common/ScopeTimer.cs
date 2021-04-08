@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 
-namespace Common.Common
+namespace Common.UI.Common
 {
     public class ScopeTimer: IDisposable
     {

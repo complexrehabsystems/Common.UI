@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Common.Common
+namespace Common.UI.Common
 {
     // http://www.blackbeltcoder.com/Articles/strings/a-sscanf-replacement-for-net
 

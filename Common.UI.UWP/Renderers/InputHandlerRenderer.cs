@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Controls;
-using Common.UWP.Common;
-using Common.UWP.Renderers;
 using Windows.Foundation;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Common.UI.Controls;
+using Common.UI.UWP.Common;
+using Common.UI.UWP.Renderers;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(InputHandler), typeof(Common.UWP.Renderers.InputHandlerRenderer))]
-namespace Common.UWP.Renderers
+[assembly: ExportRenderer(typeof(InputHandler), typeof(InputHandlerRenderer))]
+namespace Common.UI.UWP.Renderers
 {
     public class InputHandlerRenderer : ViewRenderer<InputHandler, FrameworkElement>
     {

@@ -1,4 +1,4 @@
-﻿namespace TouchTracking
+﻿namespace Common.UI.Drawing.Touch
 {
     public enum TouchActionType
     {

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Common.UI.Controls;
 using Urho;
-using Common.Controls;
-using Urho.Urho2D;
 
-namespace Common.Components
+namespace Common.UI.Components
 {
     public class ObjectModel:StaticModel
     {

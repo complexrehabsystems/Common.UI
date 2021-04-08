@@ -1,11 +1,8 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Forms;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
-namespace Common.Drawing
+namespace Common.UI.Drawing
 {
     public class Canvas
     {

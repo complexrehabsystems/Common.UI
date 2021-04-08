@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
+using Common.UI.Controls;
 using Urho;
 using Urho.Shapes;
-using Common.Controls;
 
-namespace Common.Components
+namespace Common.UI.Components
 {
     public class RotationInput : Component
     {

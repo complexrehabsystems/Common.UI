@@ -1,15 +1,13 @@
-﻿using Common.Controls;
-using Common.UWP.Renderers;
-using System.Collections.Generic;
-using System.Linq;
-using Windows.Foundation;
+﻿using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Common.UI.Controls;
+using Common.UI.UWP.Renderers;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ExportRenderer(typeof(UnclickableListView), typeof(UnclickableListViewRenderer))]
-namespace Common.UWP.Renderers
+namespace Common.UI.UWP.Renderers
 {
     public class UnclickableListViewRenderer : ListViewRenderer
     {

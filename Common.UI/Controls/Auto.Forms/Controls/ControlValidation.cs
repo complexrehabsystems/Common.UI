@@ -1,12 +1,10 @@
-﻿using Common.Controls.Auto.Forms.Validation;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
+using Common.UI.Controls.Auto.Forms.Validation;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms.Controls
+namespace Common.UI.Controls.Auto.Forms.Controls
 {
     public class ControlValidation : ContentView
     {

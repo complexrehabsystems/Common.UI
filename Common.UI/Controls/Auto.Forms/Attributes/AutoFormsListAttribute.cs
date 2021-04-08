@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
+﻿using Common.UI.Controls.Auto.Forms.Enums;
 
-namespace Common.Controls.Auto.Forms
+namespace Common.UI.Controls.Auto.Forms.Attributes
 {
     public class AutoFormsListAttribute : AutoFormsAttribute
     {

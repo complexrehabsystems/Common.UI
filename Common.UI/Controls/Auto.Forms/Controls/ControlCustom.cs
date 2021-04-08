@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms.Controls
+namespace Common.UI.Controls.Auto.Forms.Controls
 {
     public class ControlCustom : ControlBase
     {

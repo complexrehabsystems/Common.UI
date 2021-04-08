@@ -1,9 +1,6 @@
-﻿using Common.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -14,9 +11,10 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
+using Common.UI.Interfaces;
 using Xamarin.Forms.Platform.UWP;
 
-namespace Common.UWP.Services
+namespace Common.UI.UWP.Services
 {
     public class PopupMenu_UWP:IPopupMenu
     {

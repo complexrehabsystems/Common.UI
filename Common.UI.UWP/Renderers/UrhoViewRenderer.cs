@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Windows.Devices.Input;
-using Common.Controls;
-using Common.UWP.Renderers;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Common.UI.Controls;
+using Common.UI.UWP.Renderers;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ExportRenderer(typeof(UrhoView), typeof(UrhoViewRenderer))]
-namespace Common.UWP.Renderers
+namespace Common.UI.UWP.Renderers
 {   
 
     public class UrhoViewRenderer:ViewRenderer<UrhoView, ContentControl>

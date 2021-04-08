@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace Common.Controls.VideoPlayerLibrary
+namespace Common.UI.Controls.VideoPlayerLibrary
 {
     public class PositionSlider : Slider
     {

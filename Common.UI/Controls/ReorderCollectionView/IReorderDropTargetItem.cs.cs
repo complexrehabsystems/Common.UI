@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Common.Controls.ReorderCollectionView
+﻿namespace Common.UI.Controls.ReorderCollectionView
 {
     public interface IReorderDropTargetItem
     {

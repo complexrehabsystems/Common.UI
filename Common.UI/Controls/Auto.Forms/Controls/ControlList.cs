@@ -1,16 +1,12 @@
-﻿using Common.Common;
-using Common.Controls.Auto.Forms.Controls;
-using System;
+﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Windows.Input;
+using Common.UI.Common;
+using Common.UI.Controls.Auto.Forms.Attributes;
+using Common.UI.Controls.Auto.Forms.Common;
 using Xamarin.Forms;
 
-namespace Common.Controls.Auto.Forms
+namespace Common.UI.Controls.Auto.Forms.Controls
 {
     public class ControlList : ControlBase 
     {

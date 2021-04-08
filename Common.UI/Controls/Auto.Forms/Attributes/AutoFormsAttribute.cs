@@ -1,10 +1,6 @@
-using Common.Controls.Auto.Forms.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+using Common.UI.Controls.Auto.Forms.Enums;
 
-namespace Common.Controls.Auto.Forms
+namespace Common.UI.Controls.Auto.Forms.Attributes
 {
     public class AutoFormsAttribute: AutoFormsFilteredAttribute
     {
