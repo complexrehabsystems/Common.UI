@@ -1,7 +1,7 @@
 ﻿using Urho;
-using static CrsCommon.Components.Mesh;
+using static Common.Components.Mesh;
 
-namespace CrsCommon.Common
+namespace Common.Common
 {
     public static class UrhoExtensions
     {

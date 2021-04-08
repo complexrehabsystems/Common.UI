@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class StylableLabel : Label
     {

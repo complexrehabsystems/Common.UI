@@ -5,8 +5,6 @@ VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UI", "Common.UI\Common.UI.csproj", "{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.UI.iOS", "Common.UI.iOS\Common.UI.iOS.csproj", "{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,17 +30,5 @@ Global
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|x64.Build.0 = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|x86.ActiveCfg = Release|Any CPU
 		{61B37238-D36C-4BAC-A7BC-A5B4DFAD7A55}.Release|x86.Build.0 = Release|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|x64.Build.0 = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Debug|x86.Build.0 = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|x64.ActiveCfg = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|x64.Build.0 = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|x86.ActiveCfg = Debug|Any CPU
-		{3838A685-30E9-4F3F-8A2C-4CA7DDC3F69F}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

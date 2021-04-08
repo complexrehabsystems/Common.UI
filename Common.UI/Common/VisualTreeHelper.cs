@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Common
+namespace Common.Common
 {
     public static class VisualTreeHelper
     {

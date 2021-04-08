@@ -1,5 +1,5 @@
-﻿using CrsCommon.UWP.Common;
-using CrsCommon.UWP.Renderers;
+﻿using Common.UWP.Common;
+using Common.UWP.Renderers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,15 +10,15 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(CrsCommon.Controls.Border), typeof(BorderRenderer))]
-namespace CrsCommon.UWP.Renderers
+[assembly: ExportRenderer(typeof(Common.Controls.Border), typeof(BorderRenderer))]
+namespace Common.UWP.Renderers
 {
-    public class BorderRenderer : ViewRenderer<CrsCommon.Controls.Border, FrameworkElement>
+    public class BorderRenderer : ViewRenderer<Common.Controls.Border, FrameworkElement>
     {
         Border _border;
         bool MouseEntered;
 
-        protected override void OnElementChanged(ElementChangedEventArgs<CrsCommon.Controls.Border> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Common.Controls.Border> e)
         {
             base.OnElementChanged(e);
 
@@ -58,27 +58,27 @@ namespace CrsCommon.UWP.Renderers
             if (Control == null)
                 return;
 
-            if (e.PropertyName == CrsCommon.Controls.Border.ColorProperty.PropertyName)
+            if (e.PropertyName == Common.Controls.Border.ColorProperty.PropertyName)
             {
                 SetBorderColor();
             }
-            else if(e.PropertyName == CrsCommon.Controls.Border.HighlightColorProperty.PropertyName)
+            else if(e.PropertyName == Common.Controls.Border.HighlightColorProperty.PropertyName)
             {
                 SetBorderColor();
             }
-            else if (e.PropertyName == CrsCommon.Controls.Border.BorderColorProperty.PropertyName)
+            else if (e.PropertyName == Common.Controls.Border.BorderColorProperty.PropertyName)
             {
                 _border.BorderBrush = Element.BorderColor.ToNativeBrush();
             }
-            else if(e.PropertyName == CrsCommon.Controls.Border.CornerRadiusProperty.PropertyName)
+            else if(e.PropertyName == Common.Controls.Border.CornerRadiusProperty.PropertyName)
             {
                 _border.CornerRadius = new CornerRadius(Element.CornerRadius);
             }
-            else if(e.PropertyName == CrsCommon.Controls.Border.BorderThicknessProperty.PropertyName)
+            else if(e.PropertyName == Common.Controls.Border.BorderThicknessProperty.PropertyName)
             {
                 _border.BorderThickness = new Thickness(Element.BorderThickness);
             }
-            else if (e.PropertyName == CrsCommon.Controls.Border.BackgroundColorProperty.PropertyName)
+            else if (e.PropertyName == Common.Controls.Border.BackgroundColorProperty.PropertyName)
             {
                 //_border.Background = Element.BackgroundColor.ToNativeBrush();
                 //Element.BackgroundColor = Xamarin.Forms.Color.Transparent;

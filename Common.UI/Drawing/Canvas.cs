@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Drawing
+namespace Common.Drawing
 {
     public class Canvas
     {

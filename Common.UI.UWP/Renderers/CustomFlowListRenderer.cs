@@ -1,4 +1,4 @@
-﻿using CrsCommon.UWP.Renderers;
+﻿using Common.UWP.Renderers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: Xamarin.Forms.Platform.UWP.ExportRenderer(typeof(DLToolkit.Forms.Controls.FlowListView), typeof(CustomFlowListRenderer))]
-namespace CrsCommon.UWP.Renderers
+namespace Common.UWP.Renderers
 {
     public class CustomFlowListRenderer : ListViewRenderer
     {

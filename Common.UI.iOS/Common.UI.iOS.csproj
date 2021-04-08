@@ -68,7 +68,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.UI.csproj">
       <Project>{1e3e7ef9-965c-4d91-8b0e-03ae29542c86}</Project>
-      <Name>CrsCommon.UI</Name>
+      <Name>Common.UI</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

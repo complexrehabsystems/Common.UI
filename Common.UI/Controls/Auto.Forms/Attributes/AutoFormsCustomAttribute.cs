@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CrsCommon.Controls.Auto.Forms.Attributes
+namespace Common.Controls.Auto.Forms.Attributes
 {
     public class AutoFormsCustomAttribute:AutoFormsAttribute 
     {

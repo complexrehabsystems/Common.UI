@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Media;
 
-namespace CrsCommon.UWP.Common
+namespace Common.UWP.Common
 {
     public static class Extensions
     {

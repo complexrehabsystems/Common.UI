@@ -1,5 +1,5 @@
-﻿using CrsCommon.Controls;
-using CrsCommon.UWP.Renderers;
+﻿using Common.Controls;
+using Common.UWP.Renderers;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Foundation;
@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Media;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ExportRenderer(typeof(UnclickableListView), typeof(UnclickableListViewRenderer))]
-namespace CrsCommon.UWP.Renderers
+namespace Common.UWP.Renderers
 {
     public class UnclickableListViewRenderer : ListViewRenderer
     {

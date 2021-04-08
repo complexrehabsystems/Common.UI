@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace CrsCommon.Controls.VideoPlayerLibrary
+namespace Common.Controls.VideoPlayerLibrary
 {
     public interface IVideoPicker
     {

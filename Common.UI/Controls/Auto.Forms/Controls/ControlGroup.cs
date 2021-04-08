@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms.Controls
+namespace Common.Controls.Auto.Forms.Controls
 {
     public class ControlGroup : ControlBase 
     {

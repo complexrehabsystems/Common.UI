@@ -1,7 +1,7 @@
 ﻿using System;
 using PropertyChanged;
 
-namespace CrsCommon.Controls.Charts
+namespace Common.Controls.Charts
 {
     [AddINotifyPropertyChangedInterface]
     public class DataPoint

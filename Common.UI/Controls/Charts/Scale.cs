@@ -1,4 +1,4 @@
-﻿namespace CrsCommon.Controls.Charts
+﻿namespace Common.Controls.Charts
 {
     public class Scale
     {

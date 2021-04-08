@@ -1,7 +1,7 @@
-using CrsCommon.Common;
-using CrsCommon.Controls.Auto.Forms.Attributes;
-using CrsCommon.Controls.Auto.Forms.Controls;
-using CrsCommon.Controls.Auto.Forms.Validation;
+using Common.Common;
+using Common.Controls.Auto.Forms.Attributes;
+using Common.Controls.Auto.Forms.Controls;
+using Common.Controls.Auto.Forms.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
     public class ControlConfig
     {

@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Input;
-using CrsCommon.Controls;
-using CrsCommon.UWP.Renderers;
+using Common.Controls;
+using Common.UWP.Renderers;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ExportRenderer(typeof(UrhoView), typeof(UrhoViewRenderer))]
-namespace CrsCommon.UWP.Renderers
+namespace Common.UWP.Renderers
 {   
 
     public class UrhoViewRenderer:ViewRenderer<UrhoView, ContentControl>

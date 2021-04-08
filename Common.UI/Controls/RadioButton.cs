@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
-using CrsCommon.Constants;
+using Common.Constants;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class RadioButton : ContentView
     {
@@ -14,7 +14,7 @@ namespace CrsCommon.Controls
             {
                 var ctrl = (RadioButton)bindable;
                 ctrl.Label.Text = (bool)newValue ? Checkmark : Empty;
-                ctrl.Label.TextColor = (bool)newValue ? ViewConstants.ColorCrsBlue : Color.Black;
+                ctrl.Label.TextColor = (bool)newValue ? ViewConstants.ColorBlue : Color.Black;
             });
 
         public bool Selected

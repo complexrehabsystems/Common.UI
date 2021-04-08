@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class ExtendedFlexLayout : FlexLayout
     {

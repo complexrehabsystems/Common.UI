@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Urho;
-using CrsCommon.Controls;
+using Common.Controls;
 using Urho.Urho2D;
 
-namespace CrsCommon.Components
+namespace Common.Components
 {
     public class ObjectModel:StaticModel
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
     public class NullableConverter : IValueConverter
     {

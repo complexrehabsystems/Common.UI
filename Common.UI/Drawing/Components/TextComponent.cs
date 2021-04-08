@@ -5,7 +5,7 @@ using System.Text;
 using SkiaSharp;
 using TouchTracking;
 
-namespace CrsCommon.Drawing.Components
+namespace Common.Drawing.Components
 {
     public class TextComponent:BaseComponent
     {

@@ -1,4 +1,4 @@
-﻿using CrsCommon.Controls;
+﻿using Common.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(ExtendedWebView), typeof(CrsCommon.UWP.Renderers.ExtendedWebViewRenderer))]
-namespace CrsCommon.UWP.Renderers
+[assembly: ExportRenderer(typeof(ExtendedWebView), typeof(Common.UWP.Renderers.ExtendedWebViewRenderer))]
+namespace Common.UWP.Renderers
 {
     public class ExtendedWebViewRenderer : ViewRenderer<ExtendedWebView, Windows.UI.Xaml.Controls.WebView>
     {

@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Text;
 using Urho;
 using Urho.Shapes;
-using CrsCommon.Controls;
+using Common.Controls;
 
-namespace CrsCommon.Components
+namespace Common.Components
 {
     public class Box : Urho.Shapes.Box
     {

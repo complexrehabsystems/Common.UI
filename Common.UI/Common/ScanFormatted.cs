@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CrsCommon.Common
+namespace Common.Common
 {
     // http://www.blackbeltcoder.com/Articles/strings/a-sscanf-replacement-for-net
 

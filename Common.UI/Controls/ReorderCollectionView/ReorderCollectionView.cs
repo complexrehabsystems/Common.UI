@@ -1,4 +1,4 @@
-﻿using CrsCommon.Controls.ReorderCollectionView;
+﻿using Common.Controls.ReorderCollectionView;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TouchTracking;
 using Xamarin.Forms;
-using static CrsCommon.Controls.InputHandler;
-using CrsCommon.Common;
+using static Common.Controls.InputHandler;
+using Common.Common;
 
-namespace CrsCommon.Controls.ReorderCollectionView
+namespace Common.Controls.ReorderCollectionView
 {
     public class ReorderCollectionView : ContentView
     {

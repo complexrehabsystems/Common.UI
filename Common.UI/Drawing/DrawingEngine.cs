@@ -1,4 +1,4 @@
-﻿using CrsCommon.Drawing.Components;
+﻿using Common.Drawing.Components;
 using Newtonsoft.Json;
 using PropertyChanged;
 using SkiaSharp;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using TouchTracking;
 using Xamarin.Forms;
 
-namespace CrsCommon.Drawing
+namespace Common.Drawing
 {
     public class DrawingEngine : INotifyPropertyChanged
     {

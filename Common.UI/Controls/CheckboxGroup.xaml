@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:common="clr-namespace:CrsCommon.Controls;assembly=CrsCommon.UI"
+             xmlns:common="clr-namespace:Common.Controls;assembly=Common.UI"
              mc:Ignorable="d"
-             x:Class="CrsCommon.Controls.CheckboxGroup">
+             x:Class="Common.Controls.CheckboxGroup">
     <ContentView.ControlTemplate>
         <ControlTemplate>
             <Grid>

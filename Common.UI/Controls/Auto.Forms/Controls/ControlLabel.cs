@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms.Controls
+namespace Common.Controls.Auto.Forms.Controls
 {
     public class ControlLabel : ControlBase
     {

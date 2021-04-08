@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace CrsCommon.Controls.Auto.Forms.Common
+namespace Common.Controls.Auto.Forms.Common
 {
     public static class StringHelper
     {

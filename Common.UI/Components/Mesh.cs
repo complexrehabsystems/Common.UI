@@ -1,4 +1,4 @@
-﻿using CrsCommon.Common;
+﻿using Common.Common;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using Urho;
 using Urho.Urho2D;
 
-namespace CrsCommon.Components
+namespace Common.Components
 {
     public class Mesh
     {

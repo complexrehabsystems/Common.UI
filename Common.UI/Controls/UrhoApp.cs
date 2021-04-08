@@ -6,10 +6,10 @@ using System.Text;
 using Urho;
 using Urho.Actions;
 using Urho.Shapes;
-using CrsCommon.Components;
+using Common.Components;
 
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class UrhoApp : Application
     {

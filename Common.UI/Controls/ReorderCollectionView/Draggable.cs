@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.ReorderCollectionView
+namespace Common.Controls.ReorderCollectionView
 {
     public class Draggable: Grid
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using TouchTracking;
 
-namespace CrsCommon.Drawing.Components
+namespace Common.Drawing.Components
 {
     public class InkComponent : BaseComponent
     {

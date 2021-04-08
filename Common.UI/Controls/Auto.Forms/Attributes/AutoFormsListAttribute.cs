@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
     public class AutoFormsListAttribute : AutoFormsAttribute
     {

@@ -1,5 +1,5 @@
-﻿using CrsCommon.Common;
-using CrsCommon.Constants;
+﻿using Common.Common;
+using Common.Constants;
 using PropertyChanged;
 using System;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class ExpandableView : StackLayout
     {
@@ -46,7 +46,7 @@ namespace CrsCommon.Controls
                 new Trigger(typeof(CustomBoxView))
                 {
                     Property = CustomBoxView.IsMouseOverProperty, Value = true,
-                    Setters = { new Setter { Property = BackgroundColorProperty, Value = ViewConstants.ColorCrsExtraTransparentBlue } }
+                    Setters = { new Setter { Property = BackgroundColorProperty, Value = ViewConstants.ColorExtraTransparentBlue } }
                 },
                 new Trigger(typeof(CustomBoxView))
                 {

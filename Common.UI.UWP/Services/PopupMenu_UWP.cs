@@ -1,4 +1,4 @@
-﻿using CrsCommon.Interfaces;
+﻿using Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using Xamarin.Forms.Platform.UWP;
 
-namespace CrsCommon.UWP.Services
+namespace Common.UWP.Services
 {
     public class PopupMenu_UWP:IPopupMenu
     {

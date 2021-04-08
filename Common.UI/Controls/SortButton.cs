@@ -1,11 +1,11 @@
-﻿using CrsCommon.Constants;
+﻿using Common.Constants;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class SortButton : ImageButton
     {

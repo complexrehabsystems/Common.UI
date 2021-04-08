@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Urho;
-using CrsCommon.Controls;
+using Common.Controls;
 
-namespace CrsCommon.Components
+namespace Common.Components
 {
     public class WorldInputHandler: Component
     {

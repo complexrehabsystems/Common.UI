@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace CrsCommon.Controls.Auto.Forms.Validation
+namespace Common.Controls.Auto.Forms.Validation
 {
     public class AutoFormsEmailAttribute : AutoFormsValidationAttribute
     {

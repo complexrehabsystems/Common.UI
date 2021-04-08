@@ -1,10 +1,10 @@
-using CrsCommon.Controls.Auto.Forms.Attributes;
+using Common.Controls.Auto.Forms.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
     public class AutoFormsAttribute: AutoFormsFilteredAttribute
     {

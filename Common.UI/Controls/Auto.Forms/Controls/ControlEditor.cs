@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using CrsCommon.Controls.Auto.Forms.Behaviors;
-using CrsCommon.Controls.Auto.Forms.Validation;
+using Common.Controls.Auto.Forms.Behaviors;
+using Common.Controls.Auto.Forms.Validation;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
     public class ControlEditor : ControlBase
     {

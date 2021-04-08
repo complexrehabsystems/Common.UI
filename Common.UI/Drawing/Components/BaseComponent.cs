@@ -7,7 +7,7 @@ using System.Text;
 using TouchTracking;
 using Xamarin.Forms;
 
-namespace CrsCommon.Drawing.Components
+namespace Common.Drawing.Components
 {
     public abstract class BaseComponent
     {

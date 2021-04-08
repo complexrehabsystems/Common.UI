@@ -1,11 +1,11 @@
-﻿using CrsCommon.Common;
+﻿using Common.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class Checkbox : ContentView
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UIKit;
 
-namespace CrsCommon.UI.iOS.Controls
+namespace Common.UI.iOS.Controls
 {
     public class UITouchView: UIView
     {

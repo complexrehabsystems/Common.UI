@@ -1,9 +1,9 @@
-﻿using CrsCommon.Controls.VideoPlayerLibrary;
+﻿using Common.Controls.VideoPlayerLibrary;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public interface IVideoPlayerController
     {

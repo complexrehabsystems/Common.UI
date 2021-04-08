@@ -5,9 +5,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CrsCommon.Controls;
-using CrsCommon.UWP.Common;
-using CrsCommon.UWP.Renderers;
+using Common.Controls;
+using Common.UWP.Common;
+using Common.UWP.Renderers;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -15,8 +15,8 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Xamarin.Forms.Platform.UWP;
 
-[assembly: ExportRenderer(typeof(InputHandler), typeof(CrsCommon.UWP.Renderers.InputHandlerRenderer))]
-namespace CrsCommon.UWP.Renderers
+[assembly: ExportRenderer(typeof(InputHandler), typeof(Common.UWP.Renderers.InputHandlerRenderer))]
+namespace Common.UWP.Renderers
 {
     public class InputHandlerRenderer : ViewRenderer<InputHandler, FrameworkElement>
     {

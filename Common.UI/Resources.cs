@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace CrsCommon
+namespace Common
 {
     public class Resources
     {

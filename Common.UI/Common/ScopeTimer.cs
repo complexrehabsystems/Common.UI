@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace CrsCommon.Common
+namespace Common.Common
 {
     public class ScopeTimer: IDisposable
     {

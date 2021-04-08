@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CrsCommon.Interfaces
+namespace Common.Interfaces
 {
     public interface IInactivityTimer
     {

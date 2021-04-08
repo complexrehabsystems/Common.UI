@@ -1,4 +1,4 @@
-﻿using CrsCommon.Interfaces;
+﻿using Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using System.Reactive.Linq;
 
-namespace CrsCommon.UWP.Services
+namespace Common.UWP.Services
 {
     public class InactivityTimer_UWP : IInactivityTimer
     {

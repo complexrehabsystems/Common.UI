@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ColorPicker : ContentView

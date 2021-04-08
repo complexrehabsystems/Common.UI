@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TouchTracking;
 
-namespace CrsCommon.Drawing.Components
+namespace Common.Drawing.Components
 {
     public class ImageComponent : BaseComponent
     {

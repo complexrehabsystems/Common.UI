@@ -1,5 +1,5 @@
-﻿using CrsCommon.Common;
-using CrsCommon.Controls.Auto.Forms.Attributes;
+﻿using Common.Common;
+using Common.Controls.Auto.Forms.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
     public class ControlRadio : ControlBase
     {

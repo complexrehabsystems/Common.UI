@@ -5,9 +5,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CrsCommon.Controls;
-using CrsCommon.UWP.Common;
-using CrsCommon.UWP.Renderers;
+using Common.Controls;
+using Common.UWP.Common;
+using Common.UWP.Renderers;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -17,7 +17,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ExportRenderer(typeof(CustomBoxView), typeof(CustomBoxViewRenderer))]
-namespace CrsCommon.UWP.Renderers
+namespace Common.UWP.Renderers
 {
     public class CustomBoxViewRenderer : BoxViewRenderer
     {

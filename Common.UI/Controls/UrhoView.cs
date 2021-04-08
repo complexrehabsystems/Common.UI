@@ -6,7 +6,7 @@ using Urho;
 using Urho.Forms;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class UrhoView : ContentView
     {

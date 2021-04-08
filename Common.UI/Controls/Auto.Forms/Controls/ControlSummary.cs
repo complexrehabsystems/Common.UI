@@ -1,4 +1,4 @@
-﻿using CrsCommon.Common;
+﻿using Common.Common;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
     public class ControlSummary : ControlBase
     {

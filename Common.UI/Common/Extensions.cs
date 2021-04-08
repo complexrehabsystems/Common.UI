@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CrsCommon.Common
+namespace Common.Common
 {
     public static class Extensions
     {

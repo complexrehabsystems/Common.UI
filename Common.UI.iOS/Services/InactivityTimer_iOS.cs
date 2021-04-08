@@ -1,4 +1,4 @@
-﻿using CrsCommon.Interfaces;
+﻿using Common.Interfaces;
 using Foundation;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using UIKit;
 
-namespace CrsCommon.UI.iOS.Services
+namespace Common.UI.iOS.Services
 {
     public class InactivityTimer_iOS : IInactivityTimer
     {

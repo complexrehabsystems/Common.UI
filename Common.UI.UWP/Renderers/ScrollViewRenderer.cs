@@ -12,8 +12,8 @@ using Size = Xamarin.Forms.Size;
 using Point = Xamarin.Forms.Point;
 using Thickness = Xamarin.Forms.Thickness;
 
-[assembly: ExportRenderer(typeof(ScrollView), typeof(CrsCommon.UWP.Renderers.ScrollViewRenderer))]
-namespace CrsCommon.UWP.Renderers
+[assembly: ExportRenderer(typeof(ScrollView), typeof(Common.UWP.Renderers.ScrollViewRenderer))]
+namespace Common.UWP.Renderers
 {
     
     public class ScrollViewRenderer : ViewRenderer<ScrollView, ScrollViewer>//, IDontGetFocus

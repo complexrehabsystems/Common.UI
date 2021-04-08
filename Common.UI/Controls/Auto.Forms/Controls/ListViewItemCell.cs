@@ -1,7 +1,7 @@
-﻿using CrsCommon.Common;
-using CrsCommon.Controls.Auto.Forms.Controls;
-using CrsCommon.Controls.Auto.Forms.Converters;
-using CrsCommon.Controls.Auto.Forms.Validation;
+﻿using Common.Common;
+using Common.Controls.Auto.Forms.Controls;
+using Common.Controls.Auto.Forms.Converters;
+using Common.Controls.Auto.Forms.Validation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
     public class ListViewItemCell : ViewCell
     {

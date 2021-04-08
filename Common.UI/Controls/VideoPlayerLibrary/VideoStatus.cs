@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CrsCommon.Controls.VideoPlayerLibrary
+namespace Common.Controls.VideoPlayerLibrary
 {
     public enum VideoStatus
     {

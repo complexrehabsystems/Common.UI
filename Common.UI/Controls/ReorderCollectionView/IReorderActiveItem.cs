@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CrsCommon.Controls.ReorderCollectionView
+namespace Common.Controls.ReorderCollectionView
 {
     public interface IReorderActiveItem
     {

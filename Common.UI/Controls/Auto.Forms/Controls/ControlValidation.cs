@@ -1,4 +1,4 @@
-﻿using CrsCommon.Controls.Auto.Forms.Validation;
+﻿using Common.Controls.Auto.Forms.Validation;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms.Controls
+namespace Common.Controls.Auto.Forms.Controls
 {
     public class ControlValidation : ContentView
     {

@@ -1,5 +1,5 @@
-﻿using CrsCommon.Common;
-using CrsCommon.Controls;
+﻿using Common.Common;
+using Common.Controls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class Popup<T> : ContentView
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls.Auto.Forms.Attributes
+namespace Common.Controls.Auto.Forms.Attributes
 {
     public class AutoFormsHorizontalGroupAttribute : AutoFormsFilteredAttribute
     {

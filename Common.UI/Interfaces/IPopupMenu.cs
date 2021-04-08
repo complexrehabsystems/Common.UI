@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrsCommon.Interfaces
+namespace Common.Interfaces
 {
     public interface IPopupMenu
     {

@@ -4,10 +4,10 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
-using CrsCommon.Common;
+using Common.Common;
 using Xamarin.Forms;
 
-namespace CrsCommon.Controls
+namespace Common.Controls
 {
     public class ImageButton : ContentView
     {

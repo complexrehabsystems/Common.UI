@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CrsCommon.Drawing
+namespace Common.Drawing
 {
     public class CanvasDimensions
     {

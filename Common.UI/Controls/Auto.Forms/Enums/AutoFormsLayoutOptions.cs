@@ -1,4 +1,4 @@
-﻿namespace CrsCommon.Controls.Auto.Forms
+﻿namespace Common.Controls.Auto.Forms
 {
     public enum AutoFormsLayoutOptions
     {

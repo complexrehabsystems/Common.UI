@@ -7,11 +7,11 @@ using System.Reflection;
 using Xamarin.Forms;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
-using CrsCommon.Common;
+using Common.Common;
 using System.Windows.Input;
-using CrsCommon.Controls.Auto.Forms.Attributes;
-using CrsCommon.Controls.Auto.Forms.Controls;
-using CrsCommon.Controls.Auto.Forms.Validation;
+using Common.Controls.Auto.Forms.Attributes;
+using Common.Controls.Auto.Forms.Controls;
+using Common.Controls.Auto.Forms.Validation;
 
 /* Example usage for the AutoForms Control
  
@@ -67,7 +67,7 @@ using CrsCommon.Controls.Auto.Forms.Validation;
     }
      * */
 
-namespace CrsCommon.Controls.Auto.Forms
+namespace Common.Controls.Auto.Forms
 {
 
     public class AutoForms : ContentView
