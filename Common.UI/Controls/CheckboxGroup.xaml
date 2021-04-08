@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:common="clr-namespace:CrsCommon.Controls;assembly=CrsCommon.UI"
+             mc:Ignorable="d"
+             x:Class="CrsCommon.Controls.CheckboxGroup">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Frame Grid.ColumnSpan="2"
+                       Grid.RowSpan="2"
+                       BorderColor="Black"
+                       CornerRadius="5"
+                       Margin="10,20,10,10">
+                        <ContentPresenter />
+                </Frame>
+                <Grid ColumnSpacing="4"
+                      Margin="10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <common:ImageButton Text="Select All"
+                                        Margin="10,0,0,0"
+                                        WidthRequest="100"
+                                        Style="{TemplateBinding ButtonStyle}"
+                                        Command="{TemplateBinding SelectAllCommand}"/>
+                    <common:ImageButton Grid.Column="1"
+                                        Text="Unselect All"
+                                        WidthRequest="100"
+                                        Style="{TemplateBinding ButtonStyle}"
+                                        Command="{TemplateBinding UnselectAllCommand}"/>
+                </Grid>
+            </Grid>
+            
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+
+</ContentView>

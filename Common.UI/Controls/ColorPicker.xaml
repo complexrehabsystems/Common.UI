@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:common="clr-namespace:CrsCommon.Controls"
+             xmlns:constants="clr-namespace:CrsCommon.Constants"
+             x:Class="CrsCommon.Controls.ColorPicker"
+             x:Name="ColorPickerV">
+  <ContentView.Resources>
+    <DataTemplate x:Key="ColorPickerItemTemplate">
+      <Grid FlexLayout.Basis="63"
+            Margin="5"
+            WidthRequest="53"
+            HeightRequest="53">
+        <Frame Grid.Row="0" Grid.Column="0"
+               BackgroundColor="{Binding Color}"
+               CornerRadius="26" />
+        <Label Grid.Row="0" Grid.Column="0"
+               IsVisible="{Binding Selected}"
+               TextColor="White"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"
+               FontFamily="{x:Static constants:ViewConstants.FontFamilySegoe}"
+               FontSize="24"
+               FontAttributes="Bold"
+               Text="&#xE73E;"/>
+
+        <Grid.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnColorTapped"
+                                CommandParameter="{Binding .}" />
+        </Grid.GestureRecognizers>
+      </Grid>
+    </DataTemplate>
+  </ContentView.Resources>
+  <ContentView.Content>
+    <common:ExtendedFlexLayout x:Name="colorFlexLayout"
+                               ItemTemplate="{StaticResource ColorPickerItemTemplate}"
+                               ItemsSource="{Binding Colors}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Start"
+                               Wrap="Wrap"
+                               JustifyContent="Start"
+                               AlignContent="Start" />
+  </ContentView.Content>
+</ContentView>
