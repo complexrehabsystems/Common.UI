@@ -83,7 +83,7 @@ namespace Common.UI.Controls
                 {
                     new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
                     new RowDefinition{Height = GridLength.Auto},
-                    new RowDefinition{Height = new GridLength(3, GridUnitType.Star)},
+                    new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
                 }
             };
             background.GestureRecognizers.Add(new TapGestureRecognizer
