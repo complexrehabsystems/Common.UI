@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace Common.UI.Common
 {
     public static class Extensions
     {
+        public static string Dump(this object obj)
+        {
+            return JsonConvert.SerializeObject(obj, Formatting.Indented);
+        }
+
         public static ObservableCollection<T> ToObservable<T>(this IEnumerable<T> items)
         {
             var obs = new ObservableCollection<T>();
