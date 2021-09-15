@@ -24,7 +24,7 @@ namespace Common.UI.iOS.Renderers
             {
                 var v = new UITouchView
                 {
-                    //ExclusiveTouch = true,
+                    ExclusiveTouch = true,
                     //MultipleTouchEnabled = false,
                     BackgroundColor = Xamarin.Forms.Color.Transparent.ToUIColor(),
                 };
