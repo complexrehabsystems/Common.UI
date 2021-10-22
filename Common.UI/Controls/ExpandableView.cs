@@ -1,8 +1,12 @@
-﻿using System;
-using System.Windows.Input;
-using Common.UI.Common;
+﻿using Common.UI.Common;
 using Common.UI.Constants;
 using PropertyChanged;
+using System;
+using System.Collections;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Common.UI.Controls
@@ -112,6 +116,7 @@ namespace Common.UI.Controls
             (bindable as ExpandableView)._toggleLabel.Style = (Style)newValue;
         });
 
+        public static readonly BindableProperty OptionalItemsSourceProperty = BindableProperty.Create(nameof(OptionalItemsSource), typeof(IEnumerable), typeof(ExpandableView), propertyChanged: OnItemsSourceChanged);
 
         private bool _shouldIgnoreAnimation;
         private double _lastVisibleHeight = -1;
@@ -312,7 +317,13 @@ namespace Common.UI.Controls
             set => SetValue(ToggleStyleProperty, value);
         }
 
-        private void UpdateView()
+        public IEnumerable OptionalItemsSource
+        {
+            get { return (IEnumerable)GetValue(OptionalItemsSourceProperty); }
+            set { SetValue(OptionalItemsSourceProperty, value); }
+        }
+
+        protected void UpdateView()
         {
             if (ExpandedView == null || (!IsExpanded && !ExpandedView.IsVisible))
             {
@@ -445,9 +456,19 @@ namespace Common.UI.Controls
         {
             IsHeaderHighlighted = highlighted;
         }
+
+        private static void OnItemsSourceChanged(BindableObject bindable, object oldVal, object newVal)
+        {
+            var control = (ExpandableView)bindable;
+            control._shouldIgnoreAnimation = true;
+
+            control.SetExpandedView(control.ExpandedView);
+            control.UpdateView();
+            control._shouldIgnoreAnimation = false;
+        }
     }
 
-    [AddINotifyPropertyChangedInterface]
+    [AddINotifyPropertyChangedInterfaceAttribute]
     public class ExpandableViewHeaderViewModel
     {
         public EventHandler<bool> IsMouseOverChanged;

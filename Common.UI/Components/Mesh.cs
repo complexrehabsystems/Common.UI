@@ -1,29 +1,17 @@
-﻿using System;
+﻿using Common.UI.Common;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Common.UI.Common;
 using Urho;
 
 namespace Common.UI.Components
 {
-    public class Mesh
+    public class Mesh : IDisposable
     {
-        private static Dictionary<string, Mesh> _cache = new Dictionary<string, Mesh>();
-
-        public static Mesh GetMesh(string filename)
-        {
-            if (_cache.ContainsKey(filename))
-                return _cache[filename];
-
-            var mesh = new Mesh();
-            mesh.Load(filename);
-            _cache[filename] = mesh;
-
-            return mesh;
-        }
+        #region Internal Classes
 
         public class Triangle
         {
@@ -46,6 +34,45 @@ namespace Common.UI.Components
             }
         }
 
+        public class Geometry
+        {
+            public const string DefaultMaterialName = "DEFAULT";
+            public string MaterialName { get; set; }
+            public List<Triangle> Triangles { get; set; } = new List<Triangle>();
+
+            public Geometry(string materialName = DefaultMaterialName)
+            {
+                MaterialName = materialName;
+            }
+        }
+
+        public class Material
+        {
+            public string TextureFileName { get; set; }
+        }
+
+        #endregion Internal Classes
+
+        private static LRUCache<string, Mesh> _cache = new LRUCache<string, Mesh>(5);
+
+        public static Mesh GetMesh(string filename)
+        {
+            Mesh mesh = _cache[filename];
+
+            if (mesh == null)
+            {
+                mesh = new Mesh();
+                mesh.Load(filename);
+
+                if (mesh.Vertices.Any()) // We don't want to add the mesh to the cache if it is empty (failed to load)
+                {
+                    _cache[filename] = mesh;
+                }
+            }
+
+            return mesh;
+        }
+
         public List<Vector3> Vertices { get; set; }
 
         public List<Vector2> UV { get; set; }
@@ -54,168 +81,303 @@ namespace Common.UI.Components
 
         public List<Color> Colors { get; set; }
 
-        public List<Triangle> Triangles { get; set; }
+        public List<Geometry> Geometries { get; set; }
+
+        public Dictionary<string, Material> Materials { get; set; }
+
+        public BoundingBox BoundingBox { get; set; }
+
+        public int TriangleCount { get; set; }
 
         public bool IsLoaded { get; set; }
         public string Filename { get; set; }
         public bool HasTextureCoords => UV != null && UV.Count > 0;
-
-        public struct VertexData
-        {
-            public float vx;
-            public float vy;
-            public float vz;
-            public float nx;
-            public float ny;
-            public float nz;
-            public uint color;
-        };
 
         public Mesh()
         {
             Vertices = new List<Vector3>();
             Normals = new List<Vector3>();
             Colors = new List<Color>();
-            Triangles = new List<Triangle>();
             UV = new List<Vector2>();
+            Materials = new Dictionary<string, Material>();
+            Geometries = new List<Geometry>();
         }
 
-        public bool Load(string filename)
+        private void ClearAll()
         {
-            if (IsLoaded && Filename == filename)
-                return true;
-
             Vertices.Clear();
             Normals.Clear();
             Colors.Clear();
-            Triangles.Clear();
             UV.Clear();
+            Geometries.Clear();
+            Materials.Clear();
+            BoundingBox = new BoundingBox();
+        }
+        
+        /// <summary>
+        /// Loads an OBJ file and its related textures (if present) into this Mesh object.
+        /// </summary>
+        /// <param name="path">The full path of the OBJ file.</param>
+        /// <returns>True if the OBJ file was successfully parsed, false if something went wrong.</returns>
+        public bool Load(string path)
+        {
+            if (IsLoaded && Filename == path)
+                return true;
 
-            if (!File.Exists(filename))
+            if (!File.Exists(path))
                 return false;
 
-            var alignedIndexes = true;
-            var scan = new ScanFormatted();
+            ClearAll();
 
-            using (var t = new ScopeTimer("Mesh.Load"))
+            string objFileName = Path.GetFileName(path);
+            string basePath = Path.GetDirectoryName(path);
+
+            float minX, minY, minZ;
+            minX = minY = minZ = float.MaxValue;
+
+            float maxX, maxY, maxZ;
+            maxX = maxY = maxZ = float.MinValue;
+
+            using (var t = new ScopeTimer($"Mesh.Load: {objFileName}"))
             {
-                using (var fileStream = File.OpenRead(filename))
+                using (var fileStream = File.OpenRead(Path.Combine(basePath, objFileName)))
                 {
                     using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, 4096))
                     {
                         try
                         {
-                            string line;
+                            string line = null;
+                            bool allIndicesAreAligned = true;
+
+                            Geometry currentGeometry = new Geometry();
+
                             while ((line = streamReader.ReadLine()) != null)
                             {
                                 if (string.IsNullOrWhiteSpace(line) || line.Length < 2)
                                     continue;
 
                                 var tokens = line.Split(' ');
-                                if (tokens[0] == "vn")
+
+                                switch (tokens[0])
                                 {
-                                    // vertex normals must have exactly 4 tokens
-                                    if (tokens.Length != 4)
-                                        return false;
+                                    // Mtl File Reference
+                                    case "mtllib":
+                                        if (tokens.Length > 2)
+                                            throw new Exception("MTL file references must have only 2 tokens.");
 
-                                    Normals.Add(new Vector3(float.Parse(tokens[1]), float.Parse(tokens[2]),
-                                        float.Parse(tokens[3])));
-                                }
-                                else if (tokens[0] == "v")
-                                {
-                                    // vertices must have either 4 tokens or 7
-                                    if (tokens.Length != 4 && tokens.Length != 7)
-                                        return false;
+                                        Materials = ParseMtlFile(basePath, tokens[1]);
 
-                                    Vertices.Add(new Vector3(float.Parse(tokens[1]), float.Parse(tokens[2]),
-                                        float.Parse(tokens[3])));
-                                    if (tokens.Length == 7)
-                                        Colors.Add(new Color(float.Parse(tokens[4]), float.Parse(tokens[5]),
-                                            float.Parse(tokens[6])));
-                                }
-                                else if (tokens[0] == "f")
-                                {
-                                    // faces must have exactly 4 tokens 
-                                    if (tokens.Length != 4)
-                                        return false;
+                                        break;
 
-                                    var v1 = tokens[1].Split('/');
-                                    var v2 = tokens[2].Split('/');
-                                    var v3 = tokens[3].Split('/');
+                                    // Texture Reference
+                                    case "usemtl":
+                                        if (tokens.Length > 2)
+                                            throw new Exception("Texture references must have only 2 tokens.");
 
-                                    // each face token is a triplet, with exactly 3 sub-tokens
-                                    if (v1.Length != 3 || v2.Length != 3 || v3.Length != 3)
-                                        return false;
+                                        currentGeometry = new Geometry(tokens[1]);
+                                        Geometries.Add(currentGeometry);
 
-                                    var tri = new Triangle(
-                                        uint.Parse(v1[0]) - 1,
-                                        uint.TryParse(v1[1], out uint uv1) ? uv1 - 1 : 0,
-                                        uint.Parse(v1[2]) - 1,
-                                        uint.Parse(v2[0]) - 1,
-                                        uint.TryParse(v2[1], out uint uv2) ? uv2 - 1 : 0,
-                                        uint.Parse(v2[2]) - 1,
-                                        uint.Parse(v3[0]) - 1,
-                                        uint.TryParse(v3[1], out uint uv3) ? uv3 - 1 : 0,
-                                        uint.Parse(v3[2]) - 1);
+                                        break;
 
-                                    if (!tri.IsNormalAligned)
-                                        alignedIndexes = false;
+                                    // Vertex
+                                    case "v":
+                                        if (tokens.Length != 4 && tokens.Length != 7)
+                                            throw new Exception("Vertices must have either 4 or 7 tokens.");
 
-                                    Triangles.Add(tri);
-                                }
-                                else if (tokens[0] == "vt")
-                                {
-                                    // texture coordinates must have exactly 3 tokens
-                                    if (tokens.Length != 3)
-                                        return false;
+                                        Vector3 newVertex = new Vector3(float.Parse(tokens[1]), float.Parse(tokens[2]), float.Parse(tokens[3]));
+                                        newVertex = newVertex.ConvertBetweenCoordinateSystems();
+                                        Vertices.Add(newVertex);
 
-                                    UV.Add(new Vector2(float.Parse(tokens[1]), 1.0f - float.Parse(tokens[2])));
+                                        minX = Math.Min(minX, newVertex.X);
+                                        minY = Math.Min(minY, newVertex.Y);
+                                        minZ = Math.Min(minZ, newVertex.Z);
+
+                                        maxX = Math.Max(maxX, newVertex.X);
+                                        maxY = Math.Max(maxY, newVertex.Y);
+                                        maxZ = Math.Max(maxZ, newVertex.Z);
+
+                                        if (tokens.Length == 7)
+                                            Colors.Add(new Color(float.Parse(tokens[4]), float.Parse(tokens[5]),
+                                                float.Parse(tokens[6])));
+
+                                        break;
+
+                                    // Normal
+                                    case "vn":
+                                        if (tokens.Length != 4)
+                                            throw new Exception("Vertex normals must have exactly 4 tokens.");
+
+                                        Vector3 newNormal = new Vector3(float.Parse(tokens[1]), float.Parse(tokens[2]), float.Parse(tokens[3]));
+                                        newNormal = newNormal.ConvertBetweenCoordinateSystems();
+                                        Normals.Add(newNormal);
+
+                                        break;
+
+                                    // Texture Coordinates (UV)
+                                    case "vt":
+                                        if (tokens.Length != 3)
+                                            throw new Exception("Texture coordinates must have exactly 3 tokens.");
+
+                                        UV.Add(new Vector2(float.Parse(tokens[1]), 1.0f - float.Parse(tokens[2])));
+
+                                        break;
+
+                                    // Face
+                                    case "f":
+                                        if (tokens.Length != 4)
+                                            throw new Exception("Every face must have exactly 4 tokens.");
+
+                                        // [0] = Vertex Index, [1] = Texture Coordinate (UV), [2] = Normal Index
+                                        var v1 = tokens[1].Split('/');
+                                        var v2 = tokens[2].Split('/');
+                                        var v3 = tokens[3].Split('/');
+
+                                        // Each face token is a triplet, with exactly 3 sub-tokens
+                                        if (v1.Length != 3 || v2.Length != 3 || v3.Length != 3)
+                                            throw new Exception("Every face token must be a triplet with exactly 3 sub-tokens.");
+
+                                        // OBJ indexing starts at 1, so subtract 1 for each to get correct list index
+                                        uint i1 = uint.Parse(v1[0]) - 1;
+                                        uint iu1 = uint.TryParse(v1[1], out uint uv1) ? uv1 - 1 : 0;
+                                        uint in1 = uint.Parse(v1[2]) - 1;
+
+                                        uint i2 = uint.Parse(v2[0]) - 1;
+                                        uint iu2 = uint.TryParse(v2[1], out uint uv2) ? uv2 - 1 : 0;
+                                        uint in2 = uint.Parse(v2[2]) - 1;
+
+                                        uint i3 = uint.Parse(v3[0]) - 1;
+                                        uint iu3 = uint.TryParse(v3[1], out uint uv3) ? uv3 - 1 : 0;
+                                        uint in3 = uint.Parse(v3[2]) - 1;
+
+                                        Triangle tri = new Triangle(i1, iu1, in1, i2, iu2, in2, i3, iu3, in3);
+
+                                        if (!tri.IsNormalAligned)
+                                            allIndicesAreAligned = false;
+
+                                        tri.ConvertBetweenCoordinateSystems();
+                                        currentGeometry.Triangles.Add(tri);
+                                        TriangleCount++;
+
+                                        break;
+
+                                    default:
+                                        break;
                                 }
                             }
+                            
+                            // If <= 1 texture was used, it won't have been added while parsing (no "usemtl" defined in OBJ)
+                            if (currentGeometry.MaterialName == Geometry.DefaultMaterialName)
+                            {
+                                Geometries.Add(currentGeometry);
+                            }
+
+                            if (!allIndicesAreAligned)
+                            {
+                                AlignNormals();
+                            }
+
+                            // Check to make sure the mesh is valid
+                            if (Vertices.Count != Normals.Count)
+                                throw new Exception("Vertex count doesn't not match normal count.");
+
+                            if (Colors.Count > 0 && Colors.Count != Vertices.Count)
+                                throw new Exception("Color count does not match vertex count.");
+
+                            foreach(var g in Geometries)
+                            {
+                                foreach (var tri in g.Triangles)
+                                {
+                                    if (tri.I1 > Vertices.Count || tri.I2 > Vertices.Count || tri.I3 > Vertices.Count)
+                                        throw new Exception("Triangle vertex index out of bounds.");
+
+                                    if (tri.In1 > Normals.Count || tri.In2 > Normals.Count || tri.In3 > Normals.Count)
+                                        throw new Exception("Triangle normal index out of bounds.");
+
+                                    if (UV.Count > 0 && !(tri.Iu1 < UV.Count && tri.Iu2 < UV.Count && tri.Iu3 < UV.Count))
+                                        throw new Exception("Triangle uv index out of bounds.");
+                                }
+                            }
+                            
                         }
-                        catch (Exception ex)
+                        catch (Exception e)
                         {
-                            // failed to parse OBJ
+                            ClearAll();
+
+                            Debug.WriteLine($"Failed to parse {objFileName}. Exception: {e.Message}");
                             return false;
                         }
                     }
                 }
             }
 
-            ConvertBetweenCoordinateSystems();
+            BoundingBox = new BoundingBox(new Vector3(minX, minY, minZ), new Vector3(maxX, maxY, maxZ));
 
-            if (!alignedIndexes)
-            {
-                AlignNormals();
-            }
-
-            if (Vertices.Count != Normals.Count)
-                return false;
-
-            if (Colors.Count > 0 && Colors.Count != Vertices.Count)
-                return false;
-
-            if (UV.Count > 0 && UV.Count != 3 * Triangles.Count)
-                return false;
-
-            foreach (var tri in Triangles)
-            {
-                if (tri.I1 > Vertices.Count || tri.I2 > Vertices.Count || tri.I3 > Vertices.Count)
-                    return false;
-
-                if (tri.In1 > Normals.Count || tri.In2 > Normals.Count || tri.In3 > Normals.Count)
-                    return false;
-
-                if (UV.Count > 0 && !(tri.Iu1 < UV.Count && tri.Iu2 < UV.Count && tri.Iu3 < UV.Count))
-                    return false;
-            }
-
-            Debug.WriteLine($"Loaded with {Vertices.Count} Vertices, {Normals.Count} Normals, {Colors.Count} Colors, {Triangles.Count} Triangles");
+            Debug.WriteLine($"Mesh loaded with {Vertices.Count} Vertices, {Normals.Count} Normals, {UV.Count} UV's, {Colors.Count} Colors, {TriangleCount} Triangles, {Geometries.Count} Geometries");
 
             IsLoaded = true;
-            Filename = filename;
+            Filename = path;
 
             return true;
+        }
+
+        private static Dictionary<string, Material> ParseMtlFile(string basePath, string mtlFileName)
+        {
+            Dictionary<string, Material> materials = new Dictionary<string, Material>();
+
+            using (var timer = new ScopeTimer($"Parse MTL File: {mtlFileName}"))
+            {
+                using (var fileStream = File.OpenRead(Path.Combine(basePath, mtlFileName)))
+                {
+                    using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, 4096))
+                    {
+                        try
+                        {
+                            string currentTextureName = null;
+                            string line = null;
+
+                            Material currentMaterial = null;
+
+                            while ((line = streamReader.ReadLine()) != null)
+                            {
+                                string[] tokens = line.Split(' ');
+                                switch (tokens[0])
+                                {
+                                    case "newmtl":
+                                        if (tokens.Length != 2)
+                                            throw new Exception("New material declarations must have exactly 2 tokens.");
+
+                                        currentMaterial = new Material();
+
+                                        currentTextureName = tokens[1];
+                                        materials.Add(currentTextureName, currentMaterial);
+
+                                        break;
+
+                                    case "map_Kd":
+                                        if (tokens.Length != 2)
+                                            throw new Exception("Material path lines must have exactly 2 tokens.");
+
+                                        if(currentMaterial == null)
+                                            throw new Exception("No current material defined.");
+
+                                        currentMaterial.TextureFileName = tokens[1];
+
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.WriteLine($"Failed to parse {mtlFileName}. Exception: {e.Message}");
+                        }
+                    }
+                }
+            }
+
+            return materials;
         }
 
         private void AlignNormals()
@@ -224,12 +386,15 @@ namespace Common.UI.Components
             {
                 var alignedNormals = new Vector3[Vertices.Count];
 
-                foreach (var tri in Triangles)
+                foreach(var g in Geometries)
                 {
-                    UpdateNormal(ref alignedNormals, (int)tri.I1, (int)tri.In1);
-                    UpdateNormal(ref alignedNormals, (int)tri.I2, (int)tri.In2);
-                    UpdateNormal(ref alignedNormals, (int)tri.I3, (int)tri.In3);
-                }
+                    foreach (var tri in g.Triangles)
+                    {
+                        UpdateNormal(ref alignedNormals, (int)tri.I1, (int)tri.In1);
+                        UpdateNormal(ref alignedNormals, (int)tri.I2, (int)tri.In2);
+                        UpdateNormal(ref alignedNormals, (int)tri.I3, (int)tri.In3);
+                    }
+                }                
 
                 Normals = alignedNormals.ToList();
             }
@@ -254,136 +419,7 @@ namespace Common.UI.Components
             alignedNormals[vIndex] = an;
         }
 
-        private void ConvertBetweenCoordinateSystems()
-        {
-            var multiple = new Vector3(-1, 1, 1);
-            for (int i = 0; i < Vertices.Count; i++)
-            {
-                Vertices[i] = Vertices[i].ConvertBetweenCoordinateSystems();
-            }
-
-            for (int i = 0; i < Normals.Count; i++)
-            {
-                Normals[i] = Normals[i].ConvertBetweenCoordinateSystems();
-            }
-
-            Triangles?.ForEach(_ => _.ConvertBetweenCoordinateSystems());
-        }
-
-        public Urho.VertexBuffer.PositionNormalColor[] GetVertextData()
-        {
-            var data = new Urho.VertexBuffer.PositionNormalColor[Vertices.Count];
-
-            for (int i = 0; i < Vertices.Count; i++)
-            {
-                var v = Vertices[i];
-                var n = Normals[i];
-
-                Urho.Color clr = Urho.Color.Green;
-                if (Vertices.Count == Colors.Count)
-                {
-                    clr = Colors[i];
-                }
-
-                var d = new Urho.VertexBuffer.PositionNormalColor();
-
-                d.Position = v;
-                d.Normal = n;
-                d.Color = clr.ToUInt();
-
-                data[i] = d;
-            }
-
-            return data;
-        }
-
-        public Urho.VertexBuffer.PositionNormalColorTexcoord[] GetTexturedVertextData()
-        {
-            var data = new Urho.VertexBuffer.PositionNormalColorTexcoord[Triangles.Count * 3];
-
-            for (int i = 0; i < Triangles.Count; i++)
-            {
-                var t = Triangles[i];
-                var idx = i * 3;
-                var d = new Urho.VertexBuffer.PositionNormalColorTexcoord
-                {
-                    Position = Vertices[(int)t.I1],
-                    Normal = Normals[(int)t.In1],
-                    TexCoord = UV[(int)t.Iu1],
-                    Color = 0
-                };
-                data[idx] = d;
-
-                d = new Urho.VertexBuffer.PositionNormalColorTexcoord
-                {
-                    Position = Vertices[(int)t.I2],
-                    Normal = Normals[(int)t.In2],
-                    TexCoord = UV[(int)t.Iu2],
-                    Color = 0
-                };
-                data[idx + 1] = d;
-
-                d = new Urho.VertexBuffer.PositionNormalColorTexcoord
-                {
-                    Position = Vertices[(int)t.I3],
-                    Normal = Normals[(int)t.In3],
-                    TexCoord = UV[(int)t.Iu3],
-                    Color = 0
-                };
-                data[idx + 2] = d;
-            }
-
-            return data;
-        }
-
-        public uint[] GetIndexData()
-        {
-            var data = new uint[3 * Triangles.Count];
-
-            for (int i = 0; i < Triangles.Count; i++)
-            {
-                int idx = 3 * i;
-
-                data[idx + 0] = Triangles[i].I1;
-                data[idx + 1] = Triangles[i].I2;
-                data[idx + 2] = Triangles[i].I3;
-            }
-
-            return data;
-        }
-
-        public uint[] GetTexturedIndexData(Urho.VertexBuffer.PositionNormalColorTexcoord[] vb)
-        {
-            var data = new uint[vb.Length];
-
-            for (int i = 0; i < vb.Length; i++)
-            {
-                data[i] = (uint)i;
-            }
-
-            return data;
-        }
-
-        public Urho.BoundingBox GetBoundingBox()
-        {
-            float minx, miny, minz, maxx, maxy, maxz;
-
-            minx = miny = minz = float.MaxValue;
-            maxx = maxy = maxz = float.MinValue;
-
-            foreach (var v in Vertices)
-            {
-                minx = Math.Min(minx, v.X);
-                miny = Math.Min(miny, v.Y);
-                minz = Math.Min(minz, v.Z);
-                maxx = Math.Max(maxx, v.X);
-                maxy = Math.Max(maxy, v.Y);
-                maxz = Math.Max(maxz, v.Z);
-            }
-
-            return new Urho.BoundingBox(
-                new Urho.Vector3(minx, miny, minz),
-                new Urho.Vector3(maxx, maxy, maxz));
-        }
+        //Nothing to dispose of that GC won't take care of. Simply implementing interface for LRUCache.
+        public void Dispose() { }
     }
 }

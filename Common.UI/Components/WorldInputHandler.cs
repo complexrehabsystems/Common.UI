@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using Common.UI.Controls;
+using System.Text;
 using Urho;
+using Common.UI.Controls;
 
 namespace Common.UI.Components
 {
@@ -17,10 +19,6 @@ namespace Common.UI.Components
         public override void OnAttachedToNode(Node node)
         {
             base.OnAttachedToNode(node);
-
-            var model = this.AddChild<ObjectModel>("model");
-            model.LoadModel("Data/model.mdl", "Data/m1.xml");
-            //this.AddChild<RotationInput>("rotations");
         }
 
         public void Reset()

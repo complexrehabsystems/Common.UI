@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Common.UI.Common;
+using Common.UI.Controls;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Common.UI.Common;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
 
 namespace Common.UI.Controls
 {
@@ -83,7 +87,7 @@ namespace Common.UI.Controls
                 {
                     new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
                     new RowDefinition{Height = GridLength.Auto},
-                    new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
+                    new RowDefinition{Height = new GridLength(3, GridUnitType.Star)},
                 }
             };
             background.GestureRecognizers.Add(new TapGestureRecognizer

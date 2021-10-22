@@ -1,7 +1,13 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using Common.UI.Components;
+using System.Text;
 using Urho;
+using Urho.Actions;
+using Urho.Shapes;
+using Common.UI.Components;
+
 
 namespace Common.UI.Controls
 {
@@ -57,8 +63,6 @@ namespace Common.UI.Controls
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
                 AddStuff();
 
-            //AddCustomModel();
-
             Input.TouchBegin += Input_TouchBegin;
             Input.TouchEnd += Input_TouchEnd;
         }
@@ -86,60 +90,11 @@ namespace Common.UI.Controls
             _rootNode = _scene.CreateChild("rootNode");            
         }
 
-        private void AddCustomModel()
-        {
-            var mesh = new Mesh();
-
-            if (!mesh.Load("C:\\Users\\peter\\AppData\\Local\\Packages\\9183ae49-1fff-435c-81ab-44bccedf7d54_qz5z2kmg7d2z2\\LocalState\\Model.obj"))
-                return;
-            
-            var vb = new VertexBuffer(Context, false);
-            var ib = new IndexBuffer(Context, false);
-            var geom = new Geometry();
-
-            var vdata = mesh.GetVertextData();
-            var idata = mesh.GetIndexData();
-
-            // Shadowed buffer needed for raycasts to work, and so that data can be automatically restored on device loss
-            vb.Shadowed = true;
-            vb.SetSize((uint)mesh.Vertices.Count, ElementMask.Position | ElementMask.Normal | ElementMask.Color, false);
-            vb.SetData(vdata);
-
-            ib.Shadowed = true;
-            ib.SetSize((uint)mesh.Triangles.Count * 3, true);
-            ib.SetData(idata);
-
-            geom.SetVertexBuffer(0, vb);
-            geom.IndexBuffer = ib;
-            geom.SetDrawRange(PrimitiveType.TriangleList, 0, (uint)mesh.Triangles.Count * 3, true);
-
-            var Model = new Model();
-            Model.NumGeometries = 1;
-            Model.SetGeometry(0, 0, geom);
-            Model.BoundingBox = mesh.GetBoundingBox();
-
-            var cache = ResourceCache;
-            var material = cache.GetMaterial("Data/Materials/VColUnlit.xml");
-     
-            var node = _rootNode.CreateChild("fromscratch");
-
-            node.Position = (new Vector3(0.0f, 0.0f, 0.0f));
-            StaticModel sm = node.CreateComponent<StaticModel>();
-            sm.Model = Model;
-            if(material != null)
-            {
-                sm.SetMaterial(material.Clone());
-            }            
-            sm.CastShadows = true;
-        }
-
         private void AddStuff()
         {
             this.AddChild<WorldInputHandler>("inputs");
 
             this.AddChild<Components.Box>("box");
-            //var model = this.AddChild<ObjectModel>("model");
-            //model.LoadModel("model.mdl", "m1.xml");
         }
 
         private void AddCameraAndLight()
