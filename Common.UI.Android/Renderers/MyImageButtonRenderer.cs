@@ -11,13 +11,13 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using CommonButton = Common.UI.Controls.ImageButton;
-using AndroidView = Android.Views.View;
+using AndroidView = Android.Widget.RelativeLayout;
 using AndroidRectShape = Android.Graphics.Drawables.Shapes.RectShape;
 using Android.Graphics.Drawables;
 using System.ComponentModel;
 using Common.UI.Android.Renderers;
 
-[assembly: ExportRenderer(typeof(CommonButton), typeof(MyImageButtonRenderer))]
+//[assembly: ExportRenderer(typeof(CommonButton), typeof(MyImageButtonRenderer))]
 namespace Common.UI.Android.Renderers
 {
     public class MyImageButtonRenderer : ViewRenderer<CommonButton, AndroidView>
@@ -38,7 +38,7 @@ namespace Common.UI.Android.Renderers
 
 			if (Control == null && e.NewElement != null)
 			{
-				_btn = new AndroidView(this.Context)
+				/*_btn = new AndroidView(this.Context)
 				{
 				};
 
@@ -59,7 +59,7 @@ namespace Common.UI.Android.Renderers
 				shape.SetStroke((int)Element.BorderThickness, Element.ButtonBorderColor.ToAndroid());
 				_btn.Background = shape;
 
-				SetNativeControl(_btn);
+				SetNativeControl(_btn);*/
 			}
 
 		}
@@ -69,7 +69,7 @@ namespace Common.UI.Android.Renderers
 		{
 			base.OnElementPropertyChanged(sender, e);
 
-			if (Control == null)
+			/*if (Control == null)
 				return;
 
 			var shape = _btn.Background as GradientDrawable;
@@ -108,7 +108,7 @@ namespace Common.UI.Android.Renderers
 			{
 				//_btn.Background = Element.BackgroundColor.ToNativeBrush();
 				//Element.BackgroundColor = Xamarin.Forms.Color.Transparent;
-			}
+			}*/
 
 
 		}

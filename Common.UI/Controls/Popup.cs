@@ -58,7 +58,7 @@ namespace Common.UI.Controls
         protected Grid border;
         private Grid background;
 
-        public Border BorderEdge;
+        public View BorderEdge;
 
         bool taskCompleted = false;
         bool fadeIn = false;
@@ -87,7 +87,7 @@ namespace Common.UI.Controls
                 {
                     new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
                     new RowDefinition{Height = GridLength.Auto},
-                    new RowDefinition{Height = new GridLength(3, GridUnitType.Star)},
+                    new RowDefinition{Height = new GridLength(1, GridUnitType.Star)},
                 }
             };
             background.GestureRecognizers.Add(new TapGestureRecognizer
@@ -114,10 +114,11 @@ namespace Common.UI.Controls
                 RowSpacing = 0,
                 ColumnSpacing = 0,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.StartAndExpand,
                 BackgroundColor = Color.Transparent,
                 InputTransparent = false,
                 IsEnabled = false,
+                                
                 ColumnDefinitions =
                 {
                     new ColumnDefinition{Width=10},
@@ -133,20 +134,42 @@ namespace Common.UI.Controls
             };
             background.Add(border, 1, 1);
 
-            BorderEdge = new Border
+            
+
+            if (Device.RuntimePlatform == Device.Android)
             {
-                InputTransparent = false,
-                Color = Color.White,
-                BorderColor = Color.White,
-                CornerRadius = 5
-            };
-            border.Add(BorderEdge, 0, 3, 0, 3);
+                BorderEdge = new Frame
+                {
+                    InputTransparent = false,
+                    BackgroundColor = Color.White,
+                    BorderColor = Color.White,
+                    CornerRadius = 5,
+                    HasShadow = true,
+                    HorizontalOptions = LayoutOptions.Fill,
+                    VerticalOptions = LayoutOptions.Fill,
+                };
+            }
+            else
+            {
+                BorderEdge = new Border
+                {
+                    InputTransparent = false,
+                    Color = Color.White,
+                    BorderColor = Color.White,
+                    CornerRadius = 5,
+                    HorizontalOptions = LayoutOptions.Fill,
+                    VerticalOptions = LayoutOptions.Fill,
+                };
+            }
+            border.Add(BorderEdge, 1,1);
 
             PopupContent = new Grid
             {
                 RowSpacing = 0,
                 ColumnSpacing = 0,
                 Padding = 0,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                VerticalOptions = LayoutOptions.StartAndExpand,
             };
             border.Add(PopupContent, 1, 1);
 
