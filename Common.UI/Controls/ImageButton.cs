@@ -621,7 +621,7 @@ namespace Common.UI.Controls
             _layoutRoot = new Grid
             {
 
-                InputTransparent = true,
+                InputTransparent = Device.RuntimePlatform == Device.Android ? false : true,
                 //Padding = new Thickness(spacer),
                 RowSpacing = 2,
                 ColumnSpacing = 2,
@@ -643,7 +643,7 @@ namespace Common.UI.Controls
 
             Background = new Border
             {
-                InputTransparent = true,
+                InputTransparent = Device.RuntimePlatform == Device.Android? false: true,
                 CornerRadius = CornerRadius,
                 BorderThickness = BorderThickness,
                 Color = ButtonBackgroundColor,
@@ -651,6 +651,13 @@ namespace Common.UI.Controls
                 HorizontalOptions = LayoutOptions.Fill,
                 VerticalOptions = LayoutOptions.Fill,
             };
+
+            if(Device.RuntimePlatform == Device.Android)
+            {
+                Background.ButtonPressed = HandleAndroidButtonPressed;
+                Background.ButtonReleased = HandleAndroidButtonReleased;
+                Background.ButtonSelected = HandleAndroidButtonSelected;
+            }
 
             Highlight = new Border
             {
@@ -699,6 +706,27 @@ namespace Common.UI.Controls
 
             Content = _layoutRoot;
 
+        }
+
+        private void HandleAndroidButtonPressed()
+        {
+            IsHighlighted = Background.IsHighlighted;
+            ButtonState = Background.ButtonState;
+            ButtonPressed();
+        }
+
+        private void HandleAndroidButtonReleased()
+        {
+            IsHighlighted = Background.IsHighlighted;
+            ButtonState = Background.ButtonState;
+            ButtonReleased();
+        }
+
+        private void HandleAndroidButtonSelected()
+        {
+            IsHighlighted = Background.IsHighlighted;
+            ButtonState = Background.ButtonState;
+            ButtonSelected();
         }
 
         private void UpdateControls()

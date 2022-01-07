@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
+using static Common.UI.Controls.ImageButton;
 
 namespace Common.UI.Controls
 {
@@ -55,5 +57,28 @@ namespace Common.UI.Controls
             get { return (bool)GetValue(HasMouseOverProperty); }
             set { SetValue(HasMouseOverProperty, value); }
         }
+
+        public static readonly BindableProperty ButtonStateProperty = BindableProperty.Create(nameof(ButtonState), typeof(State), typeof(ImageButton), State.Static, BindingMode.OneWayToSource);
+
+        public State ButtonState
+        {
+            get { return (State)GetValue(ButtonStateProperty); }
+            set { SetValue(ButtonStateProperty, value); }
+        }
+
+        public static readonly BindableProperty IsHighlightedProperty = BindableProperty.Create(nameof(IsHighlighted), typeof(bool), typeof(ImageButton), false, BindingMode.TwoWay,
+            propertyChanged: (bindable, oldValue, newValue) =>
+            {
+                //((ImageButton)bindable).SetHighlighted((bool)newValue);
+            });
+        public bool IsHighlighted
+        {
+            get { return (bool)GetValue(IsHighlightedProperty); }
+            set { SetValue(IsHighlightedProperty, value); }
+        }
+
+        public Action ButtonPressed;
+        public Action ButtonReleased;
+        public Action ButtonSelected;
     }
 }
