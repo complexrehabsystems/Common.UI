@@ -74,7 +74,7 @@ namespace Common.UI.Controls
                 InputTransparent = false,
                 RowSpacing = 0,
                 ColumnSpacing = 0,
-                BackgroundColor = Color.FromRgba(0, 0, 0, 50),
+                BackgroundColor = Color.FromRgba(0, 0, 0, 200),
                 HorizontalOptions = LayoutOptions.Fill,
                 VerticalOptions = LayoutOptions.Fill,
                 ColumnDefinitions =
@@ -117,7 +117,7 @@ namespace Common.UI.Controls
                 VerticalOptions = LayoutOptions.StartAndExpand,
                 BackgroundColor = Color.Transparent,
                 InputTransparent = false,
-                IsEnabled = false,
+                IsEnabled = true,
                                 
                 ColumnDefinitions =
                 {
@@ -132,9 +132,11 @@ namespace Common.UI.Controls
                     new RowDefinition{Height=10}
                 }
             };
-            background.Add(border, 1, 1);
+            border.SizeChanged += Border_SizeChanged;
 
-            
+            border.LayoutChanged += Border_LayoutChanged;
+
+
 
             if (Device.RuntimePlatform == Device.Android)
             {
@@ -181,31 +183,7 @@ namespace Common.UI.Controls
                 })
             });
 
-            border.SizeChanged += (object sender, EventArgs e) =>
-            {
-                if (border.Height <= 0 || fadeIn)
-                    return;
-
-                if (border.IsEnabled)
-                    return;
-
-                fadeIn = true;
-
-                if (preventScrollIn == false)
-                {
-                    border.TranslationY = -background.Height;
-                    border.TranslateTo(0, 0, 400, Easing.Linear).ContinueWith((b) =>
-                    {
-                        Device.BeginInvokeOnMainThread(() =>
-                        {
-                            OnAppeared();
-                        });
-
-                    });
-                }
-
-                border.IsEnabled = true;
-            };
+            
 
             background.Opacity = 0;
             background.FadeTo(1, 400, Easing.Linear);
@@ -214,6 +192,53 @@ namespace Common.UI.Controls
             {
                 Content = background
             };
+
+            background.Add(border, 1, 1);
+        }
+
+        private void Border_SizeChanged(object sender, EventArgs e)
+        {
+            Fade_in();
+        }
+
+        private void Border_LayoutChanged(object sender, EventArgs e)
+        {
+            Fade_in();
+        }
+
+        private void Fade_in()
+        {
+            Debug.WriteLine("Fade_in called");
+            if (border.Height <= 0 || fadeIn)
+                return;
+
+            //if (border.IsEnabled)
+            //    return;
+
+            fadeIn = true;
+
+            if (preventScrollIn == false)
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    border.TranslationY = -background.Height;
+                    border.TranslateTo(0, 0, 400, Easing.Linear).ContinueWith((b) =>
+                    {
+                        border.IsEnabled = true;
+                        OnAppeared();
+                    });
+                });
+            }
+            else
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    border.IsEnabled = true;
+                    OnAppeared();
+                });
+            }
+
+            
         }
 
         public static async Task<T> Launch(View view, bool lightDismissEnabled, Xamarin.Forms.Page page, double innerMargin = 10, double outerMargin = 14, ICommand onLightDismissCommand = null)
@@ -230,6 +255,11 @@ namespace Common.UI.Controls
 
             // this allows us to create stackable popups without breaking everything else we have
             _instanceStack.Push(popup);
+
+            if(!(page.InternalChildren[0] is Grid))
+            {
+                throw new Exception("Page is not a Grid. Popup can't show");
+            }
 
             return await popup.Show(page.InternalChildren[0] as Grid);
         }
