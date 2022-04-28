@@ -63,7 +63,7 @@ namespace Common.UI.Controls
         bool taskCompleted = false;
         bool fadeIn = false;
 
-        public Popup()
+        public Popup(bool useScrollView = true)
         {
             LightDismissedEnabled = true;
             preventScrollIn = false;
@@ -188,10 +188,22 @@ namespace Common.UI.Controls
             background.Opacity = 0;
             background.FadeTo(1, 400, Easing.Linear);
 
-            Content = new Xamarin.Forms.ScrollView
+
+            if(useScrollView)
             {
-                Content = background
-            };
+                Content = new Xamarin.Forms.ScrollView
+                {
+                    Content = background
+                };
+            }
+            else
+            {
+                Content = new Xamarin.Forms.ContentView
+                {
+                    Content = background
+                };
+            }
+            
 
             background.Add(border, 1, 1);
         }
@@ -241,9 +253,16 @@ namespace Common.UI.Controls
             
         }
 
-        public static async Task<T> Launch(View view, bool lightDismissEnabled, Xamarin.Forms.Page page, double innerMargin = 10, double outerMargin = 14, ICommand onLightDismissCommand = null)
+        public static async Task<T> Launch(
+            View view, 
+            bool lightDismissEnabled, 
+            Xamarin.Forms.Page page, 
+            double innerMargin = 10, 
+            double outerMargin = 14, 
+            ICommand onLightDismissCommand = null,
+            bool useScrollView = true)
         {
-            var popup = new Popup<T>
+            var popup = new Popup<T> (useScrollView)
             {
                 LightDismissedEnabled = lightDismissEnabled,
             };
