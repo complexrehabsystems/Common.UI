@@ -67,9 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common.UI\Common.UI.csproj">
-      <Project>{112AF441-E6E3-4699-BDE4-79F5ECCD905B}</Project>
+      <Project>{58109F9C-FEB7-40BF-9AF7-3D5AFAAF2A80}</Project>
       <Name>Common.UI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
