@@ -8,6 +8,7 @@ using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
 
+
 namespace Common.UI.Controls.Charts
 {
     [AddINotifyPropertyChangedInterface]
